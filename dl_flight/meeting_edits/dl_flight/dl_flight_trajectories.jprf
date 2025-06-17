@@ -1,0 +1,1200 @@
+{
+ "dl_flight_trajectories.is_instruction_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "is_instruction_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0a9333b952ed3c1f1ef5341cfe3db7ce4bfb0cd18ed1b7d8ebf62503d16275e6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "is_instruction_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.is_instruction_TCC3": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "is_instruction_TCC3",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "01a9721dd407086b9d40abf151a7799db7092f6047c73013f1b37de72d92ec2f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "is_instruction_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_flight_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_flight_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "01a9721dd407086b9d40abf151a7799db7092f6047c73013f1b37de72d92ec2f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_flight_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"fp`1\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"fp`1\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_flight_helper_TCC2": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_flight_helper_TCC2",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "995a6383ebefcd2b08235e5eefe5b38a8c01885029944d81406f5635914d322e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_flight_helper_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.valid_variables_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "valid_variables_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0a9333b952ed3c1f1ef5341cfe3db7ce4bfb0cd18ed1b7d8ebf62503d16275e6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "valid_variables_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.valid_variables_TCC2": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "valid_variables_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0a9333b952ed3c1f1ef5341cfe3db7ce4bfb0cd18ed1b7d8ebf62503d16275e6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "valid_variables_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.instruction?_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "instruction?_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0a9333b952ed3c1f1ef5341cfe3db7ce4bfb0cd18ed1b7d8ebf62503d16275e6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "instruction?_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.is_instruction_TCC2": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "is_instruction_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0a9333b952ed3c1f1ef5341cfe3db7ce4bfb0cd18ed1b7d8ebf62503d16275e6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "is_instruction_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SPLIT)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "4",
+        "name": "(4)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "4",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.initial_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "initial_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0a9333b952ed3c1f1ef5341cfe3db7ce4bfb0cd18ed1b7d8ebf62503d16275e6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "initial_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(USE \"distinct_vars\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(USE \"mapexpr_inj_distinct_vars\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"list_of_correct_var\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.linear_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "linear_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0a9333b952ed3c1f1ef5341cfe3db7ce4bfb0cd18ed1b7d8ebf62503d16275e6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(USE \"distinct_vars\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(USE \"mapexpr_inj_distinct_vars\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"list_of_correct_var\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.accel_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "accel_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0a9333b952ed3c1f1ef5341cfe3db7ce4bfb0cd18ed1b7d8ebf62503d16275e6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"list_of_correct_var\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.turn_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "turn_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0a9333b952ed3c1f1ef5341cfe3db7ce4bfb0cd18ed1b7d8ebf62503d16275e6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "turn_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(USE \"distinct_vars\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(USE \"mapexpr_inj_distinct_vars\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"map\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"list_of_correct_var\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_flight_helper_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_flight_helper_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "995a6383ebefcd2b08235e5eefe5b38a8c01885029944d81406f5635914d322e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_flight_helper_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_list_flight_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_list_flight_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "d61d724406e3c4a95dd224dba26f63706ff7ff64dd42693a30d1df32fbb5559f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_list_flight_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_list_flight_TCC2": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_list_flight_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "d61d724406e3c4a95dd224dba26f63706ff7ff64dd42693a30d1df32fbb5559f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_list_flight_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_list_flight_TCC3": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_list_flight_TCC3",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "d61d724406e3c4a95dd224dba26f63706ff7ff64dd42693a30d1df32fbb5559f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_list_flight_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_list_flight_recursive_TCC1": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_list_flight_recursive_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "2f8d3215e9032f8e4ac509f20699f180621c4ad3933ed725a97e0929c48aac7c"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_list_flight_recursive_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_list_flight_recursive_TCC2": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_list_flight_recursive_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "2f8d3215e9032f8e4ac509f20699f180621c4ad3933ed725a97e0929c48aac7c"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_list_flight_recursive_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"i\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"i\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"i\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"length\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LIFT-IF)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_list_flight_recursive_TCC3": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_list_flight_recursive_TCC3",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "2f8d3215e9032f8e4ac509f20699f180621c4ad3933ed725a97e0929c48aac7c"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_list_flight_recursive_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_list_flight_recursive_TCC4": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_list_flight_recursive_TCC4",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "2f8d3215e9032f8e4ac509f20699f180621c4ad3933ed725a97e0929c48aac7c"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_list_flight_recursive_TCC4",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"i\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_list_flight_recursive_TCC5": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_list_flight_recursive_TCC5",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "3a4cefeb98875f02138dc2361e1dda1f37918ef7b41d13cc3be6d8775742207f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_list_flight_recursive_TCC5",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"i\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"length\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LIFT-IF)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(SPLIT)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(EXPAND LENGTH)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(GRIND)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_list_flight_recursive_TCC6": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_list_flight_recursive_TCC6",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "3a4cefeb98875f02138dc2361e1dda1f37918ef7b41d13cc3be6d8775742207f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_list_flight_recursive_TCC6",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"i\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"length\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LIFT-IF)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.simple_list_flight_recursive_TCC7": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "simple_list_flight_recursive_TCC7",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "3a4cefeb98875f02138dc2361e1dda1f37918ef7b41d13cc3be6d8775742207f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "simple_list_flight_recursive_TCC7",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}

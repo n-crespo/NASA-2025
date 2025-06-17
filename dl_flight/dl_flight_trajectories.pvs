@@ -4,14 +4,14 @@
 % @date: Mon, 09 Jun 2025 17:21:22 GMT
 %%
 dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
-  BEGIN 
+  BEGIN
     % IMPORTING trig@sincos
     ASSUMING
     list_of_correct_var : list[dLVar] = (:T, x, y, vx, vy :)
       distinct_vars : ASSUMPTION
           pairwise_distinct_vars?(list_of_correct_var)
 
-      
+
     ENDASSUMING
     IMPORTING trig@sincos
    % 1.) Define initial type & instruction type
@@ -21,7 +21,7 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
                   LET N = length(a) IN
                     FORALL ( i: below(N)):
                           N = length(list_of_correct_var) IMPLIES nth( a, i )`1 = nth( list_of_correct_var, i )
-   
+
         % Initial EX: ASSIGN(.....)
         initial?(hp : HP) : bool = assign?(hp)
 
@@ -40,19 +40,47 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
 
 
    % 2.) Define initial, linear, accel, turn which returns one of the types above
-        initial(xp, yp, vX, vY : real) : HP = ASSIGN((: T << cnst(0), x << cnst(xp), y << cnst(yp), vx << cnst(vX), vy << cnst(vY):))
+        initial(xp, yp, vX, vY : real) :
+          HP = ASSIGN((:
+                       T << cnst(0),
+                       x << cnst(xp),
+                       y << cnst(yp),
+                       vx << cnst(vX),
+                       vy << cnst(vY)
+                     :))
 
-        linear(t : real) : HP =  SEQ(DIFF((: T << cnst(1), x << val(vx), y << val(vy), vx << cnst(0), vy << cnst(0) :)), TEST(val(T) = cnst(t)))
+        linear(t : real) :
+          HP =  SEQ(DIFF((:
+                          T << cnst(1),
+                          x << val(vx),
+                          y << val(vy),
+                          vx << cnst(0),
+                          vy << cnst(0)
+          :)), TEST(val(T) = cnst(t)))
 
-        accel(a, t : real) : HP = SEQ(DIFF((: T << cnst(1), x << val(vx), y << val(vy), vx << cnst(a), vy << cnst(a) :)), TEST(val(T) = cnst(t)))
+        accel(a, t : real) :
+          HP = SEQ(DIFF((:
+                         T << cnst(1),
+                         x << val(vx),
+                         y << val(vy),
+                         vx << cnst(a),
+                         vy << cnst(a)
+          :)), TEST(val(T) = cnst(t)))
 
-        
-        turn(theta, t: real) : HP = SEQ(DIFF((: T << cnst(1), x << val(vx), y << val(vy), vx << cnst(cos(theta)) * val(x) - cnst(sin(theta))* val(y), vy << val(x) * cnst(sin(theta))+ val(y) * cnst(cos(theta)) :)), TEST(val(T) = cnst(t)))
+
+        turn(theta, t: real) :
+          HP = SEQ(DIFF((:
+                         T << cnst(1),
+                         x << val(vx),
+                         y << val(vy),
+                         vx << cnst(cos(theta)) * val(x) - cnst(sin(theta))* val(y),
+                         vy << val(x) * cnst(sin(theta))+ val(y) * cnst(cos(theta))
+          :)), TEST(val(T) = cnst(t)))
 
    % 4.) What property do I want to specify about them
 
 
-   % 5.) 
+   % 5.)
 
 
    % NOTES FROM MEETING
@@ -71,7 +99,7 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
 
    %Generate eutil trajectoriers? & simulate this kind of system in Kymeria
 
-  % 1.5) 
+  % 1.5)
 
 
   END dl_flight_trajectories

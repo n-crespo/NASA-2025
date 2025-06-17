@@ -1,0 +1,21 @@
+
+
+dl_flight_trajectories.valid_variables_TCC1 is UNPROVED.
+
+
+
+  valid_variables_TCC1 depends on the following definitions:
+
+    dl_flight_trajectories.list_of_correct_var
+
+    hp_def.mapexpr_inj
+
+    list_props.length
+
+    list_props.nth
+
+    notequal./=
+
+    reals.<=
+
+    reals.>=
