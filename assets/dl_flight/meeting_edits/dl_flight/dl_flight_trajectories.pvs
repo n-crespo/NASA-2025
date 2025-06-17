@@ -4,14 +4,14 @@
 % @date: Mon, 09 Jun 2025 17:21:22 GMT
 %%
 dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
-  BEGIN 
-    
+  BEGIN
+
     ASSUMING
        list_of_correct_var : list[dLVar] = (: T, x, y, vx, vy :)
 
        distinct_vars : ASSUMPTION
          pairwise_distinct_vars?(list_of_correct_var)
-      
+
     ENDASSUMING
 
     IMPORTING trig@sincos
@@ -30,7 +30,7 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
               N = length(list_of_correct_var) IMPLIES
               FORALL (i: below(N)):
                 nth( a, i )`1 = nth( list_of_correct_var, i )
-   
+
         % Initial EX: ASSIGN(.....)
         initial?(hp : HP) : bool = assign?(hp) AND valid_variables(assigns(hp))
 
@@ -41,13 +41,13 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
 
         instruction : TYPE = (instruction?)
 
-        is_list_instruction(l : list[HP]) : RECURSIVE bool = 
+        is_list_instruction(l : list[HP]) : RECURSIVE bool =
           CASES l OF
             null : TRUE,
             cons(h, t) : instruction?(h) AND is_list_instruction(t)
           ENDCASES
           MEASURE length(l)
-          
+
         % Valid flight instructions
         valid_instructions : TYPE = {h : list[instruction] | length(h) > 0}
 
@@ -60,7 +60,7 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
 
 
         flight_list_structure : TYPE = {l : list[HP] | length(l) > 1 AND initial?(car(l)) AND is_list_instruction(cdr(l))}
-      
+
 
         %Initializes the starting point of the plan and has instructions for a flight plan
         flight : TYPE = {h : HP | (seq?(h) AND initial?(stm1(h)) AND is_instruction(stm2(h)) )}
@@ -73,22 +73,22 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
 
         accel(a, t : real) : HP = SEQ(DIFF((: T << cnst(1), x << val(vx), y << val(vy), vx << cnst(a), vy << cnst(a) :)), TEST(val(T) = cnst(t)))
 
-        
+
         turn(theta, t: real) : HP = SEQ(DIFF((: T << cnst(1), x << val(vx), y << val(vy), vx << cnst(cos(theta)) * val(x) - cnst(sin(theta))* val(y), vy << val(x) * cnst(sin(theta))+ val(y) * cnst(cos(theta)) :)), TEST(val(T) = cnst(t)))
 
 
    % 3.) Create a function taht return a valid flight (It is called flight right now)
 
-        % simple_flight_helper(inst : valid_instructions) : RECURSIVE (is_instruction) = 
+        % simple_flight_helper(inst : valid_instructions) : RECURSIVE (is_instruction) =
         %   IF length(inst) = 1 THEN car(inst) ELSE SEQ(car(inst), simple_flight_helper(cdr(inst))) ENDIF
         %   MEASURE length(inst)
-  
+
         % simple_flight(fp : flight_structure) : flight = SEQ(fp`1, simple_flight_helper(fp`2))
 
-        simple_list_flight_recursive(i : valid_instructions) : RECURSIVE (is_instruction) = 
+        simple_list_flight_recursive(i : valid_instructions) : RECURSIVE (is_instruction) =
           IF length(i) = 1 THEN car(i) ELSE SEQ(car(i), simple_list_flight_recursive(cdr(i))) ENDIF MEASURE(length(i))
 
-        simple_list_flight(f : flight_list_structure) : flight = 
+        simple_list_flight(f : flight_list_structure) : flight =
           SEQ(car(f), simple_list_flight_recursive(cdr(f)))
 
    % 4.) What property do I want to specify about them
@@ -100,7 +100,7 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
       %   Gamma |- ALLRUNS(SEQ(HP,accel(...)),enclosure(...)
 
 
-   % 5.) 
+   % 5.)
 
 
    % NOTES FROM MEETING
@@ -119,7 +119,7 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
 
    %Generate eutil trajectoriers? & simulate this kind of system in Kymeria
 
-  % 1.5) 
+  % 1.5)
 
 
   END dl_flight_trajectories
