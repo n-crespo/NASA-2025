@@ -9,22 +9,24 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
     ASSUMING
        list_of_correct_var : list[dLVar] = (: T, x, y, vx, vy :)
 
-       distinct_vars : ASSUMPTION
-         pairwise_distinct_vars?(list_of_correct_var)
+    distinct_vars : ASSUMPTION
+    pairwise_distinct_vars?(list_of_correct_var)
 
     ENDASSUMING
-
     IMPORTING trig@sincos
-
    % 1.) Define initial type & instruction type
       %valid_variables?(hp:HP) : RECURSIVE bool =
       %  CASES hp OF
       %	  xxx
       % 	ENDCASES
-
      %ValidHP : TYPE = (valid_variables?)
 
-        % Valid structure of MAPEXPR that we care about
+          % NOTE: this is NOT NEEDED (i think)
+          % it assumes that the variables in the HP are _exactly_ those defined
+          % in the beginning, and are created in that order, which does not
+          % necessarily have to be true for the predicate to be provable
+
+          % Valid structure of MAPEXPR that we care about
           valid_variables(a : Assigns) : bool =
             LET N = length(a) IN
               N = length(list_of_correct_var) IMPLIES
@@ -37,7 +39,9 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
         initial : TYPE = (initial?)
 
         % Instruction EX: SEQ (DIFF(......), TEST(......))
-        instruction?(hp : HP) : bool = seq?(hp) AND diff?(stm1(hp)) AND valid_variables(odes(stm1(hp))) AND test?(stm2(hp))
+        instruction?(hp : HP) :
+          bool = seq?(hp) AND diff?(stm1(hp)) AND
+          valid_variables(odes(stm1(hp))) AND test?(stm2(hp))
 
         instruction : TYPE = (instruction?)
 
@@ -55,26 +59,51 @@ dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
         % flight_structure : TYPE = [initial, valid_instructions]
 
         %Instruction structure for how the plan should move for long
-        is_instruction(h : HP) : RECURSIVE bool = seq?(h) AND instruction?(stm1(h)) AND ((instruction?(stm2(h)) OR is_instruction(stm2(h)))) MEASURE size(h)
+        is_instruction(h : HP) :
+          RECURSIVE bool = seq?(h) AND
+          instruction?(stm1(h)) AND
+          ((instruction?(stm2(h))
+            OR is_instruction(stm2(h))))
+          MEASURE size(h)
 
 
 
-        flight_list_structure : TYPE = {l : list[HP] | length(l) > 1 AND initial?(car(l)) AND is_list_instruction(cdr(l))}
+        flight_list_structure : TYPE =
+          {l : list[HP] | length(l) > 1 AND initial?(car(l)) AND is_list_instruction(cdr(l))}
 
 
         %Initializes the starting point of the plan and has instructions for a flight plan
-        flight : TYPE = {h : HP | (seq?(h) AND initial?(stm1(h)) AND is_instruction(stm2(h)) )}
+        flight : TYPE =
+          {h : HP | (seq?(h) AND initial?(stm1(h)) AND is_instruction(stm2(h)) )}
 
 
    % 2.) Define initial, linear, accel, turn which returns one of the types above
-        initial(xp, yp, vX, vY : real) : HP = ASSIGN((: T << cnst(0), x << cnst(xp), y << cnst(yp), vx << cnst(vX), vy << cnst(vY):))
+        initial(xp, yp, vX, vY : real) : HP =
+          ASSIGN((: T << cnst(0), x << cnst(xp), y << cnst(yp), vx << cnst(vX), vy << cnst(vY):))
 
-        linear(t : real) : HP =  SEQ(DIFF((: T << cnst(1), x << val(vx), y << val(vy), vx << cnst(0), vy << cnst(0) :)), TEST(val(T) = cnst(t)))
+        linear(t : real) : HP =
+        SEQ(
+          DIFF((: T << cnst(1), x << val(vx), y << val(vy), vx << cnst(0), vy << cnst(0) :)),
+          TEST(val(T) = cnst(t))
+        )
 
-        accel(a, t : real) : HP = SEQ(DIFF((: T << cnst(1), x << val(vx), y << val(vy), vx << cnst(a), vy << cnst(a) :)), TEST(val(T) = cnst(t)))
+        accel(a, t : real) : HP =
+        SEQ(
+          DIFF((: T << cnst(1), x << val(vx), y << val(vy), vx << cnst(a), vy << cnst(a) :)),
+          TEST(val(T) = cnst(t))
+         )
 
 
-        turn(theta, t: real) : HP = SEQ(DIFF((: T << cnst(1), x << val(vx), y << val(vy), vx << cnst(cos(theta)) * val(x) - cnst(sin(theta))* val(y), vy << val(x) * cnst(sin(theta))+ val(y) * cnst(cos(theta)) :)), TEST(val(T) = cnst(t)))
+        turn(theta, t: real) : HP =
+        SEQ(
+          DIFF((:
+            T << cnst(1),
+            x << val(vx),
+            y << val(vy),
+            vx << cnst(cos(theta)) * val(x) - cnst(sin(theta))* val(y),
+            vy << val(x) * cnst(sin(theta))+ val(y) * cnst(cos(theta)) :)),
+          TEST(val(T) = cnst(t))
+         )
 
 
    % 3.) Create a function taht return a valid flight (It is called flight right now)
