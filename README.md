@@ -39,7 +39,7 @@ in the HP via the rule:
 
 $$
 x' = vx \\
-y' = yx
+y' = vy
 $$
 
 where `vx` and `yx` are the velocities in the `x` and `y` direction, respectively.
@@ -62,10 +62,11 @@ ALLRUNS(
 Let P be the predicate that states the aircraft is within some bounds, say:
 
 $$
-(|x| < B ) \land (|y| < B)
+(|x| < A ) \land (|y| < B)
 $$
 
-This creates a square shaped enclosure around the origin with side length $2B$.
+This creates a square shaped enclosure around the origin with side length $B$,
+and $A$.
 
 We want to form some kind of general rule/strategy that will enable the user to
 show that for ALL RUNS of `[HP];forward(n)`, some predicate `P` is true. We will
