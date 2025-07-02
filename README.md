@@ -109,3 +109,11 @@ state of the HP where the predicate `P` is **false** to find a new predicate
 
 > [!NOTE]
 > This approach assumes that all actions on HP are continuous
+
+```pvs
+(label "A" -1)
+(hide "A")
+(reveal "A")
+```
+
+# dL-impliesR
