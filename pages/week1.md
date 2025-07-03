@@ -1,4 +1,6 @@
-# Day 1
+Week 1 Notes
+
+# 2025-06-16
 
 ## Overview of the project
 
@@ -15,3 +17,23 @@
 The main idea is that if we have SOME hybrid program, and make some initial
 assumptions about it, we want to be able to say that `SEQ(HP, action())` is a
 will _always_ satisfy some predicate `p` if some other assumptions are true.
+
+# 2025-06-17
+
+- met with Cesar, Lauren and Bernny this morning
+
+## Understanding the theory
+
+> reading [trajectory spec](../assets/dl_flight_trajectories/dl_flight_trajectories.pvs) and
+> Plaidypvs User Manual (printed copy)
+
+# 2025-06-18
+
+```pvs
+dl_flight_trajectories [(IMPORTING dL@top) T, x, y, vx, vy : dLVar]: THEORY
+  BEGIN
+    ASSUMING
+       list_of_correct_var : list[dLVar] = (: T, x, y, vx, vy :)
+```
+
+- updating master note file (readme)
