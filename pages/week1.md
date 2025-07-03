@@ -5,7 +5,7 @@ Week 1 Notes
 ## Overview of the project
 
 - we want to be able to define a hybrid program (HP) that represents a flight
-  plan or trajectory by using some set of predefined actions, liks:
+  plan or trajectory by using some set of predefined actions, like:
   - `forward(20 seconds)` or `forward(10 miles)`
   - `turn(some_turn_rate)`
   - `accelerate(20 seconds)`
