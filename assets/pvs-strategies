@@ -1,0 +1,13 @@
+(defstep dl-init()
+
+(if-match "ALLRUNS(SEQ(init(%%),%),enclosure(%%))" :step
+  (quietly (LEMMA "path_action")(INST? -1)(ASSERT)(HIDE 2)
+    (branch (GRIND)
+    ((then (EXPAND "semantic_rel")(FLATTEN)(HIDE -2)(UNROLL -1)(ASSERT))))
+  )
+  :else (printf "Be more careful!" :FORCE-PRINTING? t)
+)
+
+"Prove ALLRUNS(init();accel(), enclosure())"
+"Proving ALLRUNS(init();accel(), enclosure())"
+)
