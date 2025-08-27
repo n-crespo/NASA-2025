@@ -1,0 +1,203 @@
+%-------------------------------------------
+% @formula: path_accel_reals
+% @theory: dl_path_action
+% @pvsfile: dl_path_action.pvs
+% @status: ❗ unfinished
+%-------------------------------------------
+path_accel_reals : PROOF
+((SKEEP)(ASSERT)(REWRITE "dlSequent_equiv")(REWRITE "dlSequent_equiv")(EXPAND "dlSequent")(SKOLEM 1 "env0")(FLATTEN)(INST 1 "0")(INST -1 "env0")
+  (spread (SPLIT)
+   ((then (HIDE -2)(SKEEP)
+     (spread (CASE "j=0")
+      ((then (REPLACE -1)(HIDE -1)(EXPAND "nth")(EXPAND "ALLRUNS")(SKOLEM 1 "envFinal")(FLATTEN)(EXPAND "semantic_rel" -2)(SKOLEM -2 "env1")(INST -1 "env1")(FLATTEN)
+        (spread (SPLIT)
+         ((then (HIDE -2)(EXPAND "DLAND")(FLATTEN)(EXPAND "accel")(EXPAND "semantic_rel")(SKOLEM -3 "env2")(FLATTEN)(EXPAND "semantic_rel" -4)(SKOLEM -4 "env3")(FLATTEN)(EXPAND "semantic_rel")(FLATTEN)
+           (spread (SPLIT -5)
+            ((then (FLATTEN)(REPLACE -2)(REPLACE -8)(HIDE -2 -8)(UNROLL -4)(EXPAND "nth" -4)(EXPAND "nth" -4)(EXPAND "cnst" -4)(EXPAND "nth" -5)(EXPAND "cnst" -5)(EXPAND "val" -7)(REPLACE -5)(ASSERT)(EXPAND "val" -1)
+              (spread (SPLIT -7)
+               ((then (PROPAX))
+                (then (FLATTEN)
+                 (spread (CASE "env3(dlvar_index(gs))=0")
+                  ((then (EXPAND "enclosure")
+                    (spread (INST-CP -8 "dlvar_index(gs)")
+                     ((then (EXPAND "val" -4)(REPLACE -9)(ASSERT)(EXPAND "tmin")(EXPAND "min")(EXPAND "*")(EXPAND "+")(EXPAND "-")(EXPAND "div_safe_re")(EXPAND "^")(EXPAND "cnst")
+                       (spread (INST-CP -8 "dlvar_index(sx)")
+                        ((spread (INST-CP -8 "dlvar_index(sy)")
+                          ((then (EXPAND "val" 2)(REPLACE -10)(FLATTEN)(ASSERT))
+                           (then (HIDE-ALL-BUT 1)(EXPAND "not_in_map")(LEMMA "distinct_vars")(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "nth")(EXPAND "nth")(SKEEP)(TYPEPRED "i")(EXPAND "length")(EXPAND "length")(EXPAND "length")(ASSERT)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)(LIFT-IF)(ASSERT))))
+                         (then (HIDE-ALL-BUT 1)(LEMMA "distinct_vars")(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "not_in_map")(SKEEP)(EXPAND "nth")(EXPAND "nth")(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(LIFT-IF)(ASSERT)(TYPEPRED "i")(EXPAND "length" -1)(EXPAND "length" -1)(EXPAND "length" -1)(ASSERT)))))
+                      (then (HIDE-ALL-BUT 1)(EXPAND "not_in_map")(SKEEP)(EXPAND "nth" -1)(EXPAND "nth" -1)(TYPEPRED "i")(EXPAND "length" -1)(EXPAND "length" -1)(EXPAND "length" -1)(ASSERT)(LIFT-IF)(HIDE -1)(LEMMA "distinct_vars")(EXPAND "list_of_correct_var")(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)))))
+                   (then (EXPAND "min")(LIFT-IF)(ASSERT))))))))
+             (then (EXPAND "semantic_rel_diff")(SKEEP)(SKEEP)(SKEEP)(EXPAND "env_at_t?")(FLATTEN)(REPLACE -9)(HIDE -9)(EXPAND "enclosure" 1)
+              (spread (INST-CP -2 "1")
+               ((then (EXPAND "nth" -3)(EXPAND "nth" -3)
+                 (spread (INST-CP -2 "2")
+                  ((then (EXPAND "nth" -3)(EXPAND "nth" -3)(EXPAND "nth" -3)(EXPAND "val" 1)(REPLACE -3 :DIR RL)(REPLACE -4 :DIR RL)(HIDE -3 -4)
+                    (spread (INST-CP -2 "0")
+                     ((then (EXPAND "nth" -3)(EXPAND "val" -9)(REPLACE -3 :DIR RL)(HIDE -3)
+                       (spread (INST-CP -2 "3")
+                        ((then (HIDE -2 -3)(TYPEPRED "fs")(EXPAND "solution_odes_u?")(FLATTEN)
+                          (spread (INST -2 "fs_accel(env2,a)" "D")
+                           ((then (LEMMA "accel_sol")(INST? -1)(INST -1 "t" "D")(EXPAND "accel" -1)
+                             (spread (ASSERT)
+                              ((then (HIDE -2)(UNROLL -2)(INST -3 "r")(INST -4 "r")(REPLACE -4 :DIR RL)(INST -5 "r")(REPLACE -5 :DIR RL)(INST -6 "r")(REPLACE -6 :DIR RL)(HIDE -3 -4 -5 -6)(EXPAND "fs_accel" 1)(EXPAND "fs_accel" -9)
+                                (spread (INST-CP -7 "0")
+                                 ((then (EXPAND "nth" -8)(EXPAND "cnst" -8)(REPLACE -8)(ASSERT)(EXPAND "solution_odes?")(FLATTEN)(HIDE -1)
+                                   (spread (INST-CP -10 "dlvar_index(gs)")
+                                    ((then (EXPAND "*")(EXPAND "+")(EXPAND "-")(EXPAND "tmin")(EXPAND "val" -7)(EXPAND "div_safe_re")(EXPAND "-")(EXPAND "^" -7)
+                                      (spread (INST-CP -10 "dlvar_index(trk)")
+                                       ((then (EXPAND "cnst" -7)(EXPAND "cnst" 1)(EXPAND "enclosure")(REPLACE -11 :DIR RL)(REPLACE -12 :DIR RL)(HIDE -11 -12)(LIFT-IF)(POSTPONE))
+                                        (then (HIDE-ALL-BUT 1)(EXPAND "not_in_map")(SKEEP)(EXPAND "nth")(EXPAND "nth")(TYPEPRED "i")(EXPAND "length")(EXPAND "length")(EXPAND "length")(ASSERT)(HIDE -1)(LIFT-IF)(LEMMA "distinct_vars")(EXPAND "list_of_correct_var")(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)))))
+                                     (then (HIDE-ALL-BUT 1)(EXPAND "not_in_map")(SKEEP)(EXPAND "nth")(EXPAND "nth")(TYPEPRED "i")(EXPAND "length")(EXPAND "length")(EXPAND "length")(ASSERT)(HIDE -1)(LIFT-IF)(LEMMA "distinct_vars")(EXPAND "list_of_correct_var")(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)))))
+                                  (then (HIDE-ALL-BUT 1)(EXPAND "length")(EXPAND "length")(EXPAND "length")(ASSERT)))))
+                               (then (HIDE-ALL-BUT 1)(SKEEP)(INST 1 "x+1")(ASSERT)))))
+                            (then (HIDE-ALL-BUT 1)(SKEEP))
+                            (then (HIDE-ALL-BUT 1)(SKEEP)
+                             (spread (SPLIT)
+                              ((then (FLATTEN)(EXPAND "length")(EXPAND "length")(EXPAND "length")(EXPAND "length")(EXPAND "length")(ASSERT))
+                               (then (FLATTEN)(EXPAND "length")(EXPAND "length")(EXPAND "length")(EXPAND "length")(EXPAND "length")(EXPAND "length")(PROPAX))))))))
+                         (then (HIDE-ALL-BUT 1)(EXPAND "length")(EXPAND "length")(EXPAND "length")(EXPAND "length")(ASSERT)))))
+                      (then (HIDE-ALL-BUT 1)(EXPAND "length" 1)(ASSERT)))))
+                   (then (HIDE-ALL-BUT 1)(EXPAND "length")(EXPAND "length")(EXPAND "length")(ASSERT)))))
+                (then (HIDE-ALL-BUT 1)(EXPAND "length")(EXPAND "length")(ASSERT))))))))
+          (then (PROPAX)))))
+       (then (HIDE-ALL-BUT 1)(TYPEPRED "j")(EXPAND "length")(EXPAND "length")(ASSERT)))))
+    (then (PROPAX)))))
+QED path_accel_reals
+
+
+%-------------------------------------------
+% @formula: intersect_enc
+% @theory: dl_path_action
+% @pvsfile: dl_path_action.pvs
+% @status: ✅ proved
+%-------------------------------------------
+intersect_enc : PROOF
+(then (SKEEP)(DECOMPOSE-EQUALITY)(EXPAND "enclosure")(EXPAND "DLAND")(GRIND))
+QED intersect_enc
+
+
+%-------------------------------------------
+% @formula: duplicate_enc
+% @theory: dl_path_action
+% @pvsfile: dl_path_action.pvs
+% @status: ✅ proved
+%-------------------------------------------
+duplicate_enc : PROOF
+(then (SKEEP)(EXPAND "DLAND")(DECOMPOSE-EQUALITY)(GRIND))
+QED duplicate_enc
+
+
+%-------------------------------------------
+% @formula: path_turn
+% @theory: dl_path_action
+% @pvsfile: dl_path_action.pvs
+% @status: ❗ unfinished
+%-------------------------------------------
+path_turn : PROOF
+(then (SKEEP)(BETA)(REWRITE "dlSequent_equiv")(REWRITE "dlSequent_equiv")(EXPAND "dlSequent")(SKOLEM 1 "env0")(FLATTEN)(INST 1 "0")(EXPAND "nth" 1)(INST -1 "env0")
+  (spread (SPLIT)
+   ((then (SKEEP)
+     (spread (CASE "j=0")
+      ((then (EXPAND "nth" -2)(ASSERT)(HIDE -1)(HIDE -2)(EXPAND "ALLRUNS")(SKOLEM 1 "envFinal")(FLATTEN)(EXPAND "semantic_rel" -2)(SKOLEM -2 "env1")(FLATTEN)(INST -1 "env1")
+        (spread (SPLIT)
+         ((then (FLATTEN)(HIDE -4)(EXPAND "turn")(EXPAND "semantic_rel" -4)(SKOLEM -4 "env2")(FLATTEN)(EXPAND "semantic_rel" -4)(FLATTEN)(UNROLL -4)(EXPAND "nth" -4)(EXPAND "nth" -4)(EXPAND "cnst" -4)(EXPAND "nth" -5)(EXPAND "cnst" -5)
+           (spread (INST-CP -6 "dlvar_index(trk)")
+            ((spread (INST-CP -6 "dlvar_index(gs)")
+              ((spread (INST-CP -6 "dlvar_index(sx)")
+                ((spread (INST-CP -6 "dlvar_index(sy)")
+                  ((then (SKOLEM -15 "env3")(FLATTEN)(EXPAND "semantic_rel" -15)(EXPAND "semantic_rel" -15)
+                    (spread (SPLIT)
+                     ((then (FLATTEN)(REPLACE -2)))))))
+                 (then (HIDE-ALL-BUT 1))))
+               (then (HIDE-ALL-BUT 1))))
+             (then (HIDE-ALL-BUT 1)))))
+          (then (PROPAX)))))
+       (then (HIDE-ALL-BUT 1)(TYPEPRED "j")(EXPAND "length" -1)(EXPAND "length" -1)(ASSERT)))))
+    (then (PROPAX)))))
+QED path_turn
+
+
+%-------------------------------------------
+% @formula: path_accel
+% @theory: dl_path_action
+% @pvsfile: dl_path_action.pvs
+% @status: ✅ proved
+%-------------------------------------------
+path_accel : PROOF
+(then (EXPAND "BoolExpr2seq")(SKEEP)(REWRITE "dlSequent_equiv")(REWRITE "dlSequent_equiv")(EXPAND "dlSequent")(SKOLEM 1 "env0")(INST -1 "env0")(FLATTEN)
+  (spread (SPLIT)
+   ((then (INST 1 "0")(SKEEP)
+     (spread (CASE "j=0")
+      ((then (EXPAND "nth" -2)(ASSERT)(HIDE -1)(HIDE -2)(EXPAND "nth" 1)(EXPAND "ALLRUNS")(SKOLEM 1 "envFinal")(FLATTEN)(EXPAND "semantic_rel" -2)(SKOLEM -2 "env1")(FLATTEN)(INST -1 "env1")(ASSERT)(EXPAND "DLAND")(FLATTEN)(REWRITE "dlSequent_equiv")(EXPAND "dlSequent")(INST -1 "env1")
+        (spread (SPLIT)
+         ((then (SKEEP)
+           (spread (CASE "j!1=0")
+            ((then (EXPAND "nth" -2)(ASSERT)(HIDE -1)(HIDE -3)(EXPAND "accel")(EXPAND "semantic_rel" -3)(SKOLEM -3 "env2")(FLATTEN)(EXPAND "semantic_rel" -4)(SKOLEM -4 "env3")(FLATTEN)(EXPAND "semantic_rel")(FLATTEN)
+              (spread (SPLIT -5)
+               ((then (FLATTEN)(REPLACE -2)(REPLACE -8)(HIDE -2 -8)(UNROLL -4)(EXPAND "nth" -4)(EXPAND "nth" -4)(EXPAND "cnst" -4)(EXPAND "nth" -5)(EXPAND "cnst" -5)(EXPAND "val" -7)(REPLACE -5)(ASSERT)(EXPAND "val" -1)
+                 (spread (SPLIT -7)
+                  ((then (PROPAX))
+                   (then (FLATTEN)
+                    (spread (CASE "env3(dlvar_index(gs))=0")
+                     ((then (EXPAND "enclosure")
+                       (spread (INST-CP -8 "dlvar_index(gs)")
+                        ((then (EXPAND "val" -4)(REPLACE -9)(REPLACE -1)(ASSERT)(EXPAND "tmin")(EXPAND "min")(ASSERT)
+                          (spread (INST-CP -8 "dlvar_index(sx)")
+                           ((spread (INST -8 "dlvar_index(sy)")
+                             ((then (EXPAND "val" 2)(REPLACE -10)(FLATTEN)(ASSERT))
+                              (then (HIDE-ALL-BUT 1)(LEMMA "distinct_vars")(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "not_in_map")(SKEEP)(EXPAND "nth")(EXPAND "nth")(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(LIFT-IF)(ASSERT)(TYPEPRED "i")(EXPAND "length" -1)(EXPAND "length" -1)(EXPAND "length" -1)(ASSERT))))
+                            (then (HIDE-ALL-BUT 1)(LEMMA "distinct_vars")(EXPAND "not_in_map")(SKEEP)(TYPEPRED "i")(EXPAND "nth")(EXPAND "nth")(EXPAND "length" -1)(EXPAND "length" -1)(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(LIFT-IF)(ASSERT)(EXPAND "length" -1)(ASSERT)))))
+                         (then (HIDE-ALL-BUT 1)(LEMMA "distinct_vars")(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(EXPAND "pairwise_distinct_vars?")(EXPAND "pairwise_distinct_vars?")(EXPAND "pairwise_distinct_vars?")(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "not_in_map")(SKEEP)(TYPEPRED "i")(EXPAND "length" -1)(EXPAND "length" -1)(EXPAND "nth")(EXPAND "nth")(EXPAND "length" -1)(EXPAND "nth" -8)(ASSERT)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(LIFT-IF)(EXPAND "distinct_var?" -2)(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)))))
+                      (then (EXPAND "min")(LIFT-IF)(ASSERT))))))))
+                (then (EXPAND "semantic_rel_diff")(SKEEP)(SKEEP)(SKEEP)(EXPAND "env_at_t?")(FLATTEN)(REPLACE -9)(HIDE -9)(EXPAND "enclosure" 1)
+                 (spread (INST-CP -2 "1")
+                  ((then (EXPAND "nth" -3)(EXPAND "nth" -3)
+                    (spread (INST-CP -2 "2")
+                     ((then (EXPAND "nth" -3)(EXPAND "nth" -3)(EXPAND "nth" -3)(EXPAND "val" 1)(REPLACE -3 :DIR RL)(REPLACE -4 :DIR RL)(HIDE -3 -4)
+                       (spread (INST-CP -2 "0")
+                        ((then (EXPAND "nth" -3)(EXPAND "val" -9)(REPLACE -3 :DIR RL)(HIDE -3)
+                          (spread (INST-CP -2 "3")
+                           ((then (EXPAND "nth" -3)(EXPAND "nth" -3)(EXPAND "nth" -3)(EXPAND "nth" -3)(REPLACE -3 :DIR RL)(HIDE -3)(HIDE -2)(TYPEPRED "fs")(EXPAND "solution_odes_u?")(FLATTEN)
+                             (spread (INST -2 "fs_accel(env2, a)" "D")
+                              ((then (LEMMA "accel_sol")(INST? -1)(INST -1 "t" "D")(EXPAND "accel" -1)
+                                (spread (ASSERT)
+                                 ((then (HIDE -2)(UNROLL -2)(INST -3 "r")(REPLACE -3 :DIR RL)(INST -4 "r")(REPLACE -4 :DIR RL)(INST -5 "r")(REPLACE -5 :DIR RL)(INST -6 "r")(REPLACE -6 :DIR RL)(HIDE -3 -4 -5 -6)(EXPAND "fs_accel" 1)(EXPAND "fs_accel" -9)
+                                   (spread (INST-CP -7 "0")
+                                    ((then (EXPAND "nth" -8)(EXPAND "cnst" -8)(REPLACE -8)(ASSERT)(EXPAND "solution_odes?")(FLATTEN)(HIDE -1)
+                                      (spread (INST-CP -10 "dlvar_index(gs)")
+                                       ((then (EXPAND "val" -6)
+                                         (spread (INST-CP -10 "dlvar_index(trk)")
+                                          ((then (REPLACE -11 :DIR RL)(REPLACE -12 :DIR RL)(HIDE -11 -12)(EXPAND "tmin")(LIFT-IF)
+                                            (spread (SPLIT -11)
+                                             ((then (FLATTEN)(ASSERT)(EXPAND "enclosure")(FLATTEN)
+                                               (spread (INST-CP -18 "dlvar_index(sx)")
+                                                ((then (EXPAND "val")(REPLACE -19 :DIR RL)
+                                                  (spread (INST-CP -18 "dlvar_index(sy)")
+                                                   ((then (REPLACE -19 :DIR RL)(HIDE -19 -20)(ASSERT))
+
+
+
+                                                    (then (HIDE-ALL-BUT 1)(LEMMA "distinct_vars")(EXPAND "not_in_map")(SKEEP)(EXPAND "nth")(TYPEPRED "i")(EXPAND "length")(EXPAND "length")(EXPAND "length")(EXPAND "nth")(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)(LIFT-IF)(ASSERT)))))
+                                                 (then (HIDE-ALL-BUT 1)(LEMMA "distinct_vars")(EXPAND "not_in_map")(SKEEP)(TYPEPRED "i")(EXPAND "length")(EXPAND "length")(EXPAND "length")(EXPAND "nth" -3)(EXPAND "nth")(EXPAND "nth")(LIFT-IF)(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)))))
+                                              (then (FLATTEN)(ASSERT)(EXPAND "enclosure")(FLATTEN)(EXPAND "val")
+                                               (spread (INST-CP -17 "dlvar_index(sx)")
+                                                ((spread (INST-CP -17 "dlvar_index(sy)")
+                                                  ((then (REPLACE -18 :DIR RL)(REPLACE -19 :DIR RL)(HIDE -18 -19)(ASSERT))
+                                                   (then (HIDE-ALL-BUT 1)(LEMMA "distinct_vars")(EXPAND "not_in_map")(SKEEP)(EXPAND "nth")(EXPAND "nth")(EXPAND "nth")(LIFT-IF)(TYPEPRED "i")(EXPAND "length")(EXPAND "length")(EXPAND "length")(ASSERT)(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT))))
+                                                 (then (HIDE-ALL-BUT 1)(LEMMA "distinct_vars")(EXPAND "not_in_map")(SKEEP)(TYPEPRED "i")(EXPAND "length")(EXPAND "length")(EXPAND "length")(EXPAND "nth")(EXPAND "nth")(EXPAND "nth")(LIFT-IF)(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT))))))))
+                                           (then (HIDE-ALL-BUT 1)(EXPAND "not_in_map")(SKEEP)(TYPEPRED "i")(LEMMA "distinct_vars")(EXPAND "length")(EXPAND "length")(EXPAND "length")(EXPAND "nth")(EXPAND "nth")(EXPAND "nth")(LIFT-IF)(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)))))
+                                        (then (HIDE-ALL-BUT 1)(LEMMA "distinct_vars")(EXPAND "not_in_map")(SKEEP)(TYPEPRED "i")(EXPAND "nth")(EXPAND "nth")(EXPAND "nth")(EXPAND "length")(EXPAND "length")(EXPAND "length")(LIFT-IF)(ASSERT)(EXPAND "pairwise_distinct_vars?")(EXPAND "list_of_correct_var")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "pairwise_distinct_vars?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(EXPAND "distinct_var?")(FLATTEN)(ASSERT)))))
+                                     (then (EXPAND "length" 1)(EXPAND "length" 1)(EXPAND "length" 1)(ASSERT)))))
+                                  (then (HIDE-ALL-BUT 1)(SKEEP)(INST 1 "x+1")(ASSERT)))))
+                               (then (HIDE-ALL-BUT 1)(SKEEP))
+                               (then (HIDE-ALL-BUT 1)(SKEEP)(EXPAND "length" 1)(EXPAND "length" 1)(EXPAND "length" 1)(EXPAND "length" 1)(EXPAND "length" 1)(EXPAND "length" 1)(PROPAX)))))
+                            (then (HIDE-ALL-BUT 1)(EXPAND "length" 1)(EXPAND "length" 1)(EXPAND "length" 1)(EXPAND "length" 1)(ASSERT)))))
+                         (then (HIDE-ALL-BUT 1)(EXPAND "length")(EXPAND "length")(EXPAND "length")(ASSERT)))))
+                      (then (EXPAND "length")(EXPAND "length")(EXPAND "length")(ASSERT)))))
+                   (then (HIDE-ALL-BUT 1)(EXPAND "length")(EXPAND "length")(ASSERT))))))))
+             (then (TYPEPRED "j!1")(EXPAND "length" -1)(EXPAND "length" -1)(ASSERT)))))
+          (then (SKEEP)(TYPEPRED "i")(EXPAND "length")(ASSERT)))))
+       (then (TYPEPRED "j")(EXPAND "length" -1)(EXPAND "length" -1)(ASSERT)))))
+    (then (PROPAX)))))
+QED path_accel
