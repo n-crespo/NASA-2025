@@ -187,3 +187,23 @@ x=0       ★        x=1           x=2              x=3.5
        ------→            ---->          ------→
 v=1                v=1           v=1              v=2
 ```
+
+### A Possible Solution
+
+Perhaps i can rearrange my lemma to do this, instead:
+
+Turn this:
+
+```pvs
+(: :) |- ALLRUNS(init(...) ++ action(..) ++ fp, enclosure())
+```
+
+Into this:
+
+```pvs
+(: :) |- ALLRUNS(init(...) ++ fp, enclosure() AND enclosure_new())
+```
+
+I'm trying to be cautious here because having an `init(...)` somewhere is
+required for the flight to be valid, so it must repeatedly "eat" the action
+directly after it while staying in the lemma.
