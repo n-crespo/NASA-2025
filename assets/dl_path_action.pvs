@@ -1,0 +1,257 @@
+%%
+% @theory: dl_path_action
+% @author: Nicolas Crespo
+% @date: 2025-07-10 17:17
+%%
+
+dl_path_action[(IMPORTING dL@top) T, tm, sx, sy, gs, trk: dLVar]: THEORY
+BEGIN
+  ASSUMING
+    list_of_correct_var : list[dLVar] = (: T, tm, sx, sy, gs, trk :)
+    distinct_vars : ASSUMPTION
+      pairwise_distinct_vars?(list_of_correct_var)
+  ENDASSUMING
+
+  IMPORTING dl_flight_trajectories[T, tm, sx, sy, gs, trk],
+            dl_trajectory_continuous[T, tm, sx, sy, gs, trk],
+            trig@trig_basic,
+            trig@to2pi,
+            reals@reals_safe_ops
+
+  a              : VAR real
+  t              : VAR posreal
+  Q, P, smaller  : VAR BoolExpr
+  fp             : VAR ValidFP
+  turn_rate      : VAR nonzero_real % a turn rate of zero in a turn() is the same as accel()
+  Gamma, Delta   : VAR Formulas
+
+  % allow min and max to take RealExpr → real
+  max_re(a,b : RealExpr)(env:Environment) : MACRO real = max(a(env), b(env))
+  min_re(a,b : RealExpr)(env:Environment) : MACRO real = min(a(env), b(env))
+
+  % enclosure with RealExpr
+  enclosure_re(lowerX, upperX, lowerY, upperY: RealExpr)(e : Environment) : bool =
+    lowerX(e) <= val(sx)(e) <= upperX(e) AND lowerY(e) <= val(sy)(e) <= upperY(e)
+
+  % enclosure with reals
+  enclosure(lowerX, upperX, lowerY, upperY: real)(e:Environment) : bool =
+    lowerX <= val(sx)(e) <= upperX AND lowerY <= val(sy)(e) <= upperY
+    % enclosure(cnst(lowerX), cnst(upperX), cnst(lowerY), cnst(upperY))
+
+  % % symmetric rectangle centered around the origin
+  enclosure(A, B: real) : BoolExpr =
+    enclosure(-A,A,-B,B)
+
+
+% accel------------------------------------------------------------------------
+
+
+  % ensure we don't decelerate to negative velocity
+  tmin(a:real,t:posreal)(e: Environment) : real =
+    IF a < 0 THEN
+      min_re(-val(gs)/cnst(a), cnst(t))(e)
+    ELSE cnst(t)(e) ENDIF
+
+  %  This lemma must be used first, when we only have one, given enclosure
+  %  (ENC₀). it does:
+  %
+  %     ENC₀     →     ENC₀ ∧ (ENC_MOVED ∧ ENC₀)
+  %
+  % These last two enclosures in the parenthesis should be combined with an
+  % intersection lemma to make one enclosure, ENC_NEW.
+  %
+  % NOTE:  sin/cos are used in opposite dimensions due to trk being defined
+  % as degrees away from NORTH, in the clockwise direction.
+  %
+  % NOTE: val(gs) is the ground speed BEFORE the accel(a,t) is executed.
+  path_accel_base: LEMMA
+    FORALL(a:real,lowerX0,upperX0,lowerY0,upperY0:real, t:posreal):
+      (Gamma |-
+        ALLRUNS(fp,DLAND(
+          enclosure(lowerX0, upperX0, lowerY0, upperY0), % original enclosure
+          DLAND(
+            enclosure(lowerX0, upperX0, lowerY0, upperY0),
+            enclosure_re(
+              % xf -    (    (gs)(t)       +     (½)(a)(t²)         )   sin ϴ
+              lowerX0 - (val(gs)*tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2) * sin_re(val(trk)),
+              upperX0 - (val(gs)*tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2) * sin_re(val(trk)),
+              lowerY0 - (val(gs)*tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2) * cos_re(val(trk)),
+              upperY0 - (val(gs)*tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2) * cos_re(val(trk))
+              % yf -    (    (gs)(t)       +     (½)(a)(t²)         )   cos ϴ
+            )
+          )
+        )
+      )) IMPLIES
+      (Gamma |- ALLRUNS(SEQ(fp, accel(a, t)), enclosure(lowerX0, upperX0, lowerY0, upperY0)))
+
+  %  This lemma must be used only once we have moved/created a new enclosure at
+  %  least once. The `intersect_enc` lemma should be used so that there is only
+  %  one enclosure, ENC_NEW, other than the original, ENC₀.
+  %
+  %     ENC₀ ∧ ENC_NEW     →     ENC₀ ∧ (ENC₀ ∧ ENC_NEW_MOVED)
+  %
+  % These last two enclosures in the parenthesis should be combined with an
+  % intersection lemma to make one enclosure, ENC_NEW.
+  path_accel: LEMMA
+    FORALL(a:real,lowerX0,upperX0,lowerY0,upperY0:real,lowerX,upperX,lowerY,upperY:RealExpr,t:posreal):
+      (Gamma |-
+        ALLRUNS(fp,DLAND(
+          enclosure(lowerX0, upperX0, lowerY0, upperY0), % original enclosure
+          DLAND(
+            enclosure(lowerX0, upperX0, lowerY0, upperY0),
+            enclosure_re(
+              % xf -   (    (gs)(t)       +    (½)(a)(t²)         )   sin ϴ
+              lowerX - (val(gs)*tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2) * sin_re(val(trk)),
+              upperX - (val(gs)*tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2) * sin_re(val(trk)),
+              lowerY - (val(gs)*tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2) * cos_re(val(trk)),
+              upperY - (val(gs)*tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2) * cos_re(val(trk))
+              % yf -   (    (gs)(t)       +     (½)(a)(t²)         )   cos ϴ
+            )
+          )
+        )
+      )) IMPLIES
+      (Gamma |-
+        ALLRUNS(SEQ(fp, accel(a, t)), DLAND(
+          enclosure(lowerX0, upperX0, lowerY0, upperY0), % original enclosure
+          enclosure_re(lowerX, upperX, lowerY, upperY) % a new enclosure (already intersected with original enclosure with intersect_enc)
+        )))
+
+  % DLAND(enc, enc) → enc()
+  % QED
+  intersect_enc_re: LEMMA
+    FORALL(lx, ux, ly, uy, lowerX, upperX, lowerY, upperY: RealExpr):
+      (enclosure(lowerX,  upperX,  lowerY,  upperY) AND enclosure(lx, ux, ly, uy))
+      =
+      enclosure(
+        max_re(lx, lowerX),
+        min_re(ux, upperX),
+        max_re(ly, lowerY),
+        min_re(uy, upperY)
+      )
+
+  % DLAND(enc(reals), enc(RealExpr))  -> enc(RealExpr)
+  % QED
+  intersect_enc: LEMMA
+    FORALL(lx, ux, ly, uy:real, lowerX, upperX, lowerY, upperY: RealExpr):
+      (enclosure(lx, ux, ly, uy) AND enclosure_re(lowerX,  upperX,  lowerY,  upperY))
+      =
+      enclosure_re(
+        max_re(cnst(lx), lowerX),
+        min_re(cnst(ux), upperX),
+        max_re(cnst(ly), lowerY),
+        min_re(cnst(uy), upperY)
+      )
+
+
+% turn-------------------------------------------------------------------------
+
+
+  % % unproved
+  % % [FP:turn(...)]P
+  % path_turn: LEMMA
+  %   FORALL(turn_rate:nonzero_real, t:posreal, lowerX,upperX,lowerY,upperY:real):
+  %     (Gamma |- ALLRUNS(fp,
+  %       DLAND(
+  %         enclosure(lowerX, upperX, lowerY, upperY),
+  %         enclosure( % waypoints enclosure
+  %           lowerX-((val(gs)/turn_rate)*( cos(val(trk)-turn_rate*t) - cos(val(trk)))),
+  %           upperX-((val(gs)/turn_rate)*( cos(val(trk)-turn_rate*t) - cos(val(trk)))),
+  %           lowerY-((val(gs)/turn_rate)*(-sin(val(trk)-turn_rate*t) - sin(val(trk)))),
+  %           upperY-((val(gs)/turn_rate)*(-sin(val(trk)-turn_rate*t) - sin(val(trk))))
+  %         )) AND
+  %         LET
+  %           limitLX = IF turn_rate < 0 THEN pi ELSE 0  ENDIF,
+  %           limitUX = IF turn_rate < 0 THEN 0  ELSE pi ENDIF,
+  %           limitUY = pi/2,
+  %           limitLY = 3*pi/2,
+  %
+  %           s    = sign(turn_rate),
+  %           trk0 = val(trk) - turn_rate*cnst(t),
+  %           x0   = val(sx)-(val(gs)/turn_rate)*( cos(trk0)-cos(val(trk))),
+  %           y0   = val(sy)-(val(gs)/turn_rate)*(-sin(trk0)+sin(val(trk))),
+  %
+  %           maxLX = (val(gs)/turn_rate)*(s*cos(trk0)-cos(0)),
+  %           maxUX = (val(gs)/turn_rate)*(s*cos(trk0)-cos(pi)),
+  %           maxLY = (val(gs)/turn_rate)*( -sin(trk0)+sin(s*3*pi/2)),
+  %           maxUY = (val(gs)/turn_rate)*( -sin(trk0)+sin(s*1*pi/2))
+  %         IN
+  %           enclosure(
+  %             lowerX-(IF to2pi(trk0) > limitLX THEN maxLX ELSE 0 ENDIF),
+  %             upperX-(IF to2pi(trk0) > limitUX THEN maxUX ELSE 0 ENDIF),
+  %             lowerY-(IF to2pi(trk0) > limitLY THEN maxLY ELSE 0 ENDIF),
+  %             upperY-(IF to2pi(trk0) > limitUY THEN maxUY ELSE 0 ENDIF)
+  %           )
+  %       ))
+  %     IMPLIES
+  %     (Gamma |- ALLRUNS(SEQ(fp, turn(turn_rate, t)), enclosure(lowerX,upperX,lowerY,upperY)))
+  %
+
+% old--------------------------------------------------------------------------
+
+  % % only checks if waypoints are safe, not entire turn
+  % enclosure_turn_wp(w:nonzero_real, t:posreal, lowerX, upperX, lowerY, upperY) : MACRO BoolExpr =
+    % enclosure(
+    %   lowerX-((val(gs)/w)*( cos((val(trk))-w*t) - cos(val(trk)))),
+    %   upperX-((val(gs)/w)*( cos((val(trk))-w*t) - cos(val(trk)))),
+    %   lowerY-((val(gs)/w)*(-sin((val(trk))-w*t) - sin(val(trk)))),
+    %   upperY-((val(gs)/w)*(-sin((val(trk))-w*t) - sin(val(trk))))
+    % )
+
+  % % ensures inner parts of turn are safe
+  % enclosure_turn(w:nonzero_real, t:posreal, lowerX, upperX, lowerY, upperY) : BoolExpr =
+  %   LET
+  %     limitLX = IF w < 0 THEN pi ELSE 0  ENDIF,
+  %     limitUX = IF w < 0 THEN 0  ELSE pi ENDIF,
+  %     limitUY = pi/2,
+  %     limitLY = 3*pi/2,
+
+  %     s    = sign(w),
+  %     trk0 = val(trk) - w*t,
+  %     x0   = val(sx) - (val(gs)/w)*( cos(trk0)-cos(val(trk))),
+  %     y0   = val(sy) - (val(gs)/w)*(-sin(trk0)+sin(val(trk))),
+
+  %     maxLX = (val(gs)/w)*(s*cos(trk0)-cos(0)),
+  %     maxUX = (val(gs)/w)*(s*cos(trk0)-cos(pi)),
+  %     maxLY = (val(gs)/w)*(-sin(trk0)+sin(s*3*pi/2)),
+  %     maxUY = (val(gs)/w)*(-sin(trk0)+sin(s*pi/2))
+  %   IN
+  %     enclosure(
+  %       lowerX-(IF to2pi(trk0) > limitLY THEN maxLX ELSE 0 ENDIF),
+  %       upperX-(IF to2pi(trk0) > limitUX THEN maxUX ELSE 0 ENDIF),
+  %       lowerY-(IF to2pi(trk0) > limitLY THEN maxLY ELSE 0 ENDIF),
+  %       upperY-(IF to2pi(trk0) > limitUY THEN maxUY ELSE 0 ENDIF)
+  %     )
+
+  % OLD VERSION OF THIS IS PROVED (see pvsbin/dl_path_action.prl @formula: path_accel)
+  % [FP ++ accel(...)]P
+  path_accel_reals: LEMMA
+    FORALL(a:real,lowerX,upperX,lowerY,upperY:real, t:posreal):
+      (Gamma |-
+        ALLRUNS(fp,DLAND(enclosure(lowerX, upperX, lowerY, upperY),
+                         enclosure(
+                          lowerX - (sin(val(trk))*(val(gs) * tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2)),
+                          upperX - (sin(val(trk))*(val(gs) * tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2)),
+                          lowerY - (cos(val(trk))*(val(gs) * tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2)),
+                          upperY - (cos(val(trk))*(val(gs) * tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2)))
+                        ))) IMPLIES
+      (Gamma |-
+        ALLRUNS(SEQ(fp, accel(a, t)), enclosure(lowerX, upperX, lowerY, upperY)))
+
+  % OLD PATH_ACCEL
+  % % [FP ++ accel(...)]P
+  % path_accel: LEMMA
+  %   FORALL(a:real,lowerX,upperX,lowerY,upperY:RealExpr, t:posreal):
+  %     (Gamma |-
+  %       ALLRUNS(fp,DLAND(
+  %         enclosure(lowerX, upperX, lowerY, upperY),
+  %         enclosure(
+  %           lowerX - (sin_re(val(trk))*(val(gs) * tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2)),
+  %           upperX - (sin_re(val(trk))*(val(gs) * tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2)),
+  %           lowerY - (cos_re(val(trk))*(val(gs) * tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2)),
+  %           upperY - (cos_re(val(trk))*(val(gs) * tmin(a,t) + cnst(0.5*a)*tmin(a,t)^2))
+  %         )
+  %       )
+  %     )) IMPLIES
+  %     (Gamma |- ALLRUNS(SEQ(fp, accel(a, t)), enclosure(lowerX, upperX, lowerY, upperY)))
+
+END dl_path_action
