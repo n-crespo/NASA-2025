@@ -1,0 +1,51 @@
+(defstep dl-enclosure ()
+  (quietly
+   (ASSERT)
+   (cond-match
+    ("ALLRUNS(init(%%),enclosure(%%))"
+     (branch
+      (GRIND)
+      ((then
+        (EXPAND "semantic_rel")
+        (FLATTEN)
+        (HIDE -2)
+        (UNROLL -1)
+        (ASSERT)
+        (metit *)))))
+    ("ALLRUNS(%,enclosure(%%))"
+     (then
+      (LEMMA "path_accel_base")
+      (INST? -1)
+      (SPLIT)
+      (HIDE 2)
+      (LEMMA "intersect_enc")
+      (INST? -1)
+      (REPLACE -1)
+      (HIDE -1)
+      (dl-enclosure)))
+    ("ALLRUNS(init(%%),DLAND(enclosure(%%),enclosure(%%)))"
+     (branch
+      (GRIND)
+      ((then
+        (EXPAND "semantic_rel")
+        (FLATTEN)
+        (HIDE -2)
+        (UNROLL -1)
+        (ASSERT)
+        (metit *)))))
+    ("ALLRUNS(%,DLAND(enclosure(%%),enclosure(%%)))"
+     (then
+      (LEMMA "path_accel")
+      (INST? -1)
+      (SPLIT)
+      (HIDE 2)
+      (LEMMA "intersect_enc")
+      (INST? -1)
+      (REPLACE -1)
+      (HIDE -1)
+      (dl-enclosure)))
+    (else
+     (printf "Current dL-sequent is not supported"))
+    :fnums +))
+  "Prove ALLRUNS(hp,enclosure(...)), where hp is a validFP"
+  "Proving ALLRUNS(hp,enclosure(...))")
