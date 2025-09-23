@@ -1,6 +1,10 @@
-# Update Guide on using PVS with a Windows Machine
+# Using PVS on Windows (updated)
 
-1. Install WSL (this guide assumes you install Ubuntu)
+PVS works only on Unix based operating systems, meaning it won't normally work
+on Windows. We can get around this by installing and running PVS on Windows
+Subsystem for Linux (WSL).
+
+1. Install WSL (this guide assumes you install Ubuntu). See [these installation instructions](https://learn.microsoft.com/en-us/windows/wsl/install#install-wsl-command).
 2. Launch WSL (`wsl` in a terminal) and run  these commands:
 
     ```sh
