@@ -115,5 +115,3 @@ state of the HP where the predicate `P` is **false** to find a new predicate
 (hide "A")
 (reveal "A")
 ```
-
-# dL-impliesR
