@@ -1,117 +1,81 @@
-# A Generalized Formalization of Aircraft Trajectories Described as Hybrid Programs
+# Formally Verifying the Safety of Untrusted Aircraft Trajectories in PVS
+
+> [!NOTE]
+> A prerequisite for this work is the [embedding of aircraft trajectories as
+> hybrid programs](./dl_flight/dl_flight_trajectories.pvs) in Plaidypvs, which
+> was largely developed by Bernny Velasquez and César Muñoz. A valid flight plan
+> (`ValidFP`) is an `init(...)` followed by a series of instructions such as
+> `accel(...)`, `linear(...)` and `turn(...)`, executed sequentially with `++`.
+> The proofs below assume and reason with this structure.
+
+## Goal
+
+Describe an untrusted flight plan as a hybrid program (HP) built from predefined actions
+(`init(...)`, `accel(...)`, `turn(...)`, ...) and prove that every run of it
+stays inside some predefined operational enclosure:
+
+```pvs
+Gamma |- ALLRUNS(init(...) ++ action(...) ++ ... , enclosure(lowerX, upperX, lowerY, upperY))
+```
+
+without the user having to expand the semantics of each action by hand.
 
 ## My Approach
 
-I will refer to the arbitrary step previously referred to as `forward(n)` as the
-"action" that will occur after HP.
-
-I want to be able to have a _new_ predicate, P', that I can use to show that
-P is true. If we can define a P' such that HP satisfying P' implies that
-`HP;action |- P`:
+Each lemma in [`dl_path_action.pvs`](./dl_flight/dl_path_action.pvs) consumes
+the action directly after `init(...)` and turns its effect into a new
+`init(...)`:
 
 ```pvs
-DLIMPLIES(
-  ALLRUNS( HP, P_prime),
-  ALLRUNS( SEQ( HP, action ), P)
-)
+% path_accel (simplified)
+start and end of accel(a,t) are inside the enclosure AND
+(Gamma |- ALLRUNS(SEQ(init(x+dX, y+dY, gs+a*tmin, trk, tmin, t), hp), enclosure(...)))
+  IMPLIES
+(Gamma |- ALLRUNS(SEQ(init(x, y, gs, trk, t0, tm0), SEQ(accel(a,t), hp)), enclosure(...)))
 ```
 
-I am thinking of doing similar to `dl-diffinv` and `dl-ghost`, where the user adds some
-information to the proof (in the case of the differential invariant this
-information was the ghost, or counterbalancing function) that specifies HOW the
-action affects the HP in a general way.
+Because every state variable is an argument of `init(...)`, the
+enclosure never refers to a value (like `gs` or `trk`) that a later step could
+change. Applying the lemma repeatedly shrinks the flight down to a single
+`init(...)`.
 
-### Example: 1D Case
+The [flight-path proofs](./dl_flight/dl_path_action.prf) for `path_accel` and
+`path_accel_base` can be used to show that every run of an acceleration action
+keeps the vehicle within safety boundaries using the ODE solution lemma
+[`accel_sol`](./dl_flight/dl_trajectory_continuous.pvs).
 
-Lets consider the 1 dimensional case of the trajectory. In this case, we have a
-hybrid program (HP) that runs in sequence with some action or change that
-occurs (let's say) _after_ the HP.
+The [`dl-enclosure`](./dl_flight/pvs-strategies) strategy automates proving
+these kinds of `ALLRUNS(fp, enclosure(...))` goals. It rewrites `a ++ b ++ c`
+into `SEQ(a, SEQ(b, c))`, pattern-matches on the shape of the dL sequent
+(`init` followed by an `accel` or `turn`), applies the matching
+`path_accel`/`path_accel_base` (or `path_turn`/`path_turn_base`) lemma, and
+recurses until only `init(...)` is left. (note `path_turn` is not yet proven)
+
+A test bench of safe/unsafe flight examples can be found in ([dl_path_action_example.pvs](./dl_flight/dl_path_action_example.pvs)).
 
 > [!NOTE]
-> The fact that we are saying the action is occurring AFTER the initial HP will
-> (later) not necessarily be upheld since we plan to add actions like
-> `backwards(n)` that _pre_-pend segments to the trajectory HP. This is useful
-> when defining a trajectory that lands a plane then takes off again.
+> A HTML visualization of the [`path_accel` proof
+> tree](./dl_flight/dl_enclosure/path_accel.html) is also available (it may
+> require quite a bit of zooming out to be visible).
 
-Let HP be some trajectory that the aircraft has followed, and let the action
-be `forward(10 seconds)`, where `forward(n)` evolves the `x` and `y` variables
-in the HP via the rule:
+## My Previous Approach
 
-$$
-x' = vx \\
-y' = vy
-$$
+The [original plan](./notes/backwards-approach.md) peeled actions off the end of a
+flight and moved the enclosure backwards through each one. That produced false
+positives once an `accel(...)` was followed by anything else. Further
+explanation [here](./notes/backwards-approach-false-positives.md).
 
-where `vx` and `yx` are the velocities in the `x` and `y` direction, respectively.
+Artifacts from this approach are still in the repo:
 
-Thus, we have
+- [proofs](./dl_flight/dl_enclosure/backwards_approach/dl_path_action.prl) for `path_accel`, `path_accel_base`,
+  `path_accel_reals`, `intersect_enc` and `intersect_enc_re` (the matching
+  `.pvs` spec was replaced by the forward version)
+- the backwards [`dl-enclosure`](./dl_flight/dl_enclosure/backwards_approach/pvs-strategies)
+  strategy, which used `intersect_enc` to intersect enclosures via `DLAND`
+- the [`path_accel_reals` proof tree](./dl_flight/dl_enclosure/backwards_approach/path_accel_reals.html)
 
-$$
-[HP;\text{forward(n)}]\ P
-$$
+## Other Notes
 
-or
-
-```pvs
-ALLRUNS(
-  SEQ( HP, forward(n) ),
-  P
-)
-```
-
-Let P be the predicate that states the aircraft is within some bounds, say:
-
-$$
-(|x| < A ) \land (|y| < B)
-$$
-
-This creates a square shaped enclosure around the origin with side length $B$,
-and $A$.
-
-We want to form some kind of general rule/strategy that will enable the user to
-show that for ALL RUNS of `[HP];forward(n)`, some predicate `P` is true. We will
-do this by creating a new predicate `P'` that, when the HP satisfies it, implies
-that the sequence satisfies `P`.
-
-> [!WARNING]
-> This solution my not be exactly what we want. Our initial goal is to prevent
-> the user from having to `(expand)` part of this proof to prove each piece
-> individually, but this solutions entails asking the user to define some new
-> rule/function that describes how the action affects the trajectory HP.
-> Furthermore, since this proves inductively, they will also have to specify
-> such a function for each "action" segment that _makes up_ HP (unless we can
-> already make some assumptions about HP, in which case these are not needed)
-
-In this simple case, since we know that `forward(n)` affects `x` and `y` by
-simply increasing their values by `vx * n` and `yx * n`, respectively, we can
-say at the end of this action:
-
-$$
-(x = x + vx * n)
-\land
-(y = y + vy * n)
-$$
-
-This we can define P' as:
-
-$$
-P' = B - \text{max}(|vx*n|, |vy*n|) > 0
-$$
-
-Thus, if we start at the boundary and "undo" the action, or subtract the action
-rather than add it, we can find a _new_ boundary that the original HP must
-start within to.
-
-In more general terms, we must apply the _inverse_ of the action to the first
-state of the HP where the predicate `P` is **false** to find a new predicate
-`P'` that HP must satisfy BEFORE executing the action for the sequence
-`HP;action` to satisfy `P`.
-
-> [!NOTE]
-> This approach assumes that all actions on HP are continuous
-
-```pvs
-(label "A" -1)
-(hide "A")
-(reveal "A")
-```
+- I wrote proofs for the PVS dynamic logic sequent rules [`dl_orR` and `dl_impliesR`](./dl_flight/dynamic_logic.prl)
+- I wrote a [short guide](./notes/pvs-on-windows.md) on running PVS and VSCode-PVS through WSL
+- [_old/](./notes/_old/) contains some early weekly notes and proof snippets
