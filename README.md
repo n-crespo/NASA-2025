@@ -51,21 +51,23 @@ kinds of `ALLRUNS(fp, enclosure(...))` goals by following these steps:
 3. apply the matching `path_accel`/`path_accel_base` (or `path_turn`/`path_turn_base`) lemma,
 4. and recurse until only `init(...)` is left. (note `path_turn` is not yet proven)
 
-A test bench of safe/unsafe flight examples that can be solved with this
-strategy can be found in
-([dl_path_action_example.pvs](./dl_flight/dl_path_action_example.pvs)).
-
 > [!NOTE]
-> A HTML visualization of the [`path_accel` proof
+> A test bench of safe/unsafe flight examples that can be solved with this
+> strategy can be found in
+> ([dl_path_action_example.pvs](./dl_flight/dl_path_action_example.pvs)). An
+> HTML visualization of the [`path_accel` proof
 > tree](./dl_flight/dl_enclosure/path_accel.html) is also available (it may
 > require quite a bit of zooming out to be visible).
 
 ## My Previous Approach
 
-The [original plan](./notes/backwards-approach.md) peeled actions off the end of a
-flight and moved the enclosure backwards through each one. That produced false
-positives once an `accel(...)` was followed by anything else. Further
-explanation [here](./notes/backwards-approach-false-positives.md).
+The [original plan](./notes/backwards-approach.md) peeled actions off the end
+of a flight and moved the enclosure backwards through each one. This is the
+approach I presented in these
+[slides](./slides/Representing_and_Formally_Verifying_Flight_Trajectories_as_Hybrid_Programs.pptx).
+Unfortunately I later found that such an approach produces false positives once an
+`accel(...)` is followed by anything else. Further explanation
+[here](./notes/backwards-approach-false-positives.md).
 
 Artifacts from this approach are still in the repo:
 
