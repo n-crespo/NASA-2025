@@ -1,0 +1,42 @@
+%%
+% @theory: discont_ft
+% @author: Bernny Velasquez
+% @date: Fri, 08 Aug 2025 15:30:15 GMT
+%%
+discont_ft[ T : TYPE FROM real ]: THEORY
+  BEGIN
+
+  IMPORTING analysis@cont_if_fun[T]
+
+    f1,f2 : VAR [T -> real]
+    x : VAR T
+
+    discont_ft_gt : LEMMA
+      continuous?(f1) AND continuous?(f2) AND
+          discont_pts(LAMBDA (t : real) : f1(t)>f2(t))(x)
+            IMPLIES f1(x)=f2(x)
+
+    discont_ft_lt : LEMMA
+      continuous?(f1) AND continuous?(f2) AND
+          discont_pts(LAMBDA (t : real) : f1(t)<f2(t))(x)
+            IMPLIES f1(x)=f2(x)
+
+    discont_ft_lte : LEMMA
+      continuous?(f1) AND continuous?(f2) AND
+          discont_pts(LAMBDA (t : real) : f1(t)<=f2(t))(x)
+            IMPLIES f1(x)=f2(x)
+
+    discont_ft_gte : LEMMA
+      continuous?(f1) AND continuous?(f2) AND
+          discont_pts(LAMBDA (t : real) : f1(t)>=f2(t))(x)
+            IMPLIES f1(x)=f2(x)
+
+    discont_ft_eq : LEMMA
+      continuous?(f1) AND continuous?(f2) AND
+          discont_pts(LAMBDA (t : real) : f1(t)=f2(t))(x)
+            IMPLIES f1(x)=f2(x)
+
+
+
+
+  END discont_ft

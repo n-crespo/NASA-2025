@@ -1,0 +1,688 @@
+(|dl_flight_trajectories|
+ (|valid_init_assign_items_TCC1| 0
+  (|valid_init_assign_items_TCC1-0| "" 3966036989
+   ("" (SKEEP) (("" (SKEEP) (("" (GRIND) NIL NIL)) NIL)) NIL) NIL SHOSTAK
+   (|valid_init_assign_items| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar](list_of_correct_var)]" (25 47 25 48)))
+  (|valid_init_assign_items_TCC1-5| "" 3961097443
+   ("" (SKEEP) (("" (SKEEP) (("" (GRIND) NIL NIL)) NIL)) NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) SHOSTAK
+   (|valid_init_assign_items| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar](list_of_correct_var)]" (25 47 25 48)))
+  (|valid_init_assign_items_TCC1-4| "" 3961096906
+   ("" (SKEEP) (("" (SKEEP) (("" (ASSERT) NIL NIL)) NIL)) NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) SHOSTAK
+   (|valid_init_assign_items| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar](list_of_correct_var)]" (25 47 25 48)))
+  (|valid_init_assign_items_TCC1-3| "" 3961096836
+   ("" (SKEEP)
+    (("" (EXPAND "list_of_correct_var")
+      (("" (ASSERT)
+        (("" (GRIND) (("" (TYPEPRED "i") (("" (POSTPONE) NIL NIL)) NIL)) NIL))
+        NIL))
+      NIL))
+    NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) SHOSTAK
+   (|valid_init_assign_items| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar](list_of_correct_var)]" (25 47 25 48)))
+  (|valid_init_assign_items_TCC1-1| NIL 3961096732 ("" (SUBTYPE-TCC) NIL NIL)
+   NIL NIL
+   (|valid_init_assign_items| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar](list_of_correct_var)]" (25 47 25 48))))
+ (|valid_init_gs_TCC1| 0
+  (|valid_init_gs_TCC1-3| "" 3966036995 ("" (SKEEP) (("" (GRIND) NIL NIL)) NIL)
+   NIL SHOSTAK
+   (|valid_init_gs| SUBTYPE "4" "below[length[MapExpr](a)]" (35 18 35 19)))
+  (|valid_init_gs_TCC1-2| "" 3961097456 ("" (SKEEP) (("" (GRIND) NIL NIL)) NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) SHOSTAK
+   (|valid_init_gs| SUBTYPE "4" "below[length[MapExpr](a)]" (35 18 35 19)))
+  (|valid_init_gs_TCC1-0| "" 3961097069
+   ("" (SKEEP) (("" (EXPAND "list_of_correct_var") (("" (GRIND) NIL NIL)) NIL))
+    NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) SHOSTAK
+   (|valid_init_gs| SUBTYPE "4" "below[length[MapExpr](a)]" (35 18 35 19)))
+  (|valid_init_gs_TCC1-1| NIL 3961096732 ("" (SUBTYPE-TCC) NIL NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) NIL
+   (|valid_init_gs| SUBTYPE "4" "below[length[MapExpr](a)]" (35 18 35 19))))
+ (|valid_i_assign_TCC1| 0
+  (|valid_i_assign_TCC1-0| "" 3966036999
+   ("" (SKEEP) (("" (SKEEP) (("" (GRIND) NIL NIL)) NIL)) NIL) NIL SHOSTAK
+   (|valid_i_assign| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar]((: T, tm :))]" (44 36 44 37)))
+  (|valid_i_assign_TCC1-2| "" 3961097469
+   ("" (SKEEP) (("" (SKEEP) (("" (GRIND) NIL NIL)) NIL)) NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) SHOSTAK
+   (|valid_i_assign| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar]((: T, tm :))]" (44 36 44 37)))
+  (|valid_i_assign_TCC2-1| NIL 3961096732 ("" (SUBTYPE-TCC) NIL NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) NIL
+   (|valid_i_assign| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar]((: T, tm :))]" (44 36 44 37))))
+ (|valid_i_assigns_me_TCC1| 0
+  (|valid_i_assigns_me_TCC1-1| NIL 3965817345 ("" (SUBTYPE-TCC) NIL NIL) NIL
+   NIL
+   (|valid_i_assigns_me| SUBTYPE "1" "below[length[MapExpr](a)]"
+    (53 17 53 18))))
+ (|valid_i_diff_TCC1| 1
+  (|valid_i_diff_TCC1-2| "" 3966037037
+   ("" (SKEEP) (("" (SKEEP) (("" (GRIND) NIL NIL)) NIL)) NIL) NIL SHOSTAK
+   (|valid_i_diff| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar]((: T, sx, sy, gs, trk :))]" (58 50 58 51)))
+  (|valid_i_diff_TCC1-1| "" 3966037029
+   ("" (SKEEP) (("" (SKEEP) (("" (GRIND) NIL NIL)) NIL)) NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) SHOSTAK
+   (|valid_i_diff| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar]((: T, sx, sy, gs, trk :))]" (58 50 58 51)))
+  (|valid_i_diff_TCC1-0| "" 3961097484
+   ("" (SKEEP) (("" (SKEEP) (("" (GRIND) NIL NIL)) NIL)) NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) SHOSTAK
+   (|valid_i_diff| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar]((: T, sx, sy, gs, trk :))]" (58 50 58 51)))
+  (|valid_i_diff_TCC2-1| NIL 3961096732 ("" (SUBTYPE-TCC) NIL NIL)
+   ((|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|)) NIL
+   (|valid_i_diff| SUBTYPE "dl_flight_trajectories.i"
+    "below[length[dLVar]((: T, sx, sy, gs, trk :))]" (58 50 58 51))))
+ (|instruction_struct?_TCC1| 0
+  (|instruction_struct?_TCC1-0| "" 3966037045 ("" (SUBTYPE-TCC) NIL NIL) NIL
+   SHOSTAK
+   (|instruction_struct?| SUBTYPE "dl_flight_trajectories.hp"
+    "{x: HP_adt.HP | booleans.OR(HP_adt.seq?(x), HP_adt.union?(x))}"
+    (65 21 65 23)))
+  (|instruction_struct?_TCC1-1| NIL 3965817345 ("" (SUBTYPE-TCC) NIL NIL) NIL
+   NIL
+   (|instruction_struct?| SUBTYPE "dl_flight_trajectories.hp"
+    "{x: HP_adt.HP | booleans.OR(HP_adt.seq?(x), HP_adt.union?(x))}"
+    (65 21 65 23))))
+ (|instruction_struct?_TCC2| 0
+  (|instruction_struct?_TCC2-0| "" 3966037051 ("" (SUBTYPE-TCC) NIL NIL) NIL
+   SHOSTAK
+   (|instruction_struct?| SUBTYPE "HP_adt.stm2(dl_flight_trajectories.hp)"
+    "{x: HP_adt.HP | booleans.OR(HP_adt.seq?(x), HP_adt.union?(x))}"
+    (67 19 67 27)))
+  (|instruction_struct?_TCC2-1| NIL 3965817345 ("" (SUBTYPE-TCC) NIL NIL) NIL
+   NIL
+   (|instruction_struct?| SUBTYPE "HP_adt.stm2(dl_flight_trajectories.hp)"
+    "{x: HP_adt.HP | booleans.OR(HP_adt.seq?(x), HP_adt.union?(x))}"
+    (67 19 67 27))))
+ (|accel_diff?_TCC1| 1
+  (|accel_diff?_TCC1-0| "" 3966037062 ("" (POSTPONE) NIL NIL) NIL SHOSTAK
+   (|accel_diff?| SUBTYPE "0" "below[length[MapExpr](o)]" (75 15 75 16)))
+  (|accel_diff?_TCC1-1| NIL 3961098210 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|accel_diff?| SUBTYPE "0" "below[length[MapExpr](o)]" (75 15 75 16))))
+ (|accel_diff?_TCC2| 2
+  (|accel_diff?_TCC2-2| "" 3966037074
+   ("" (SUBTYPE-TCC) (("" (POSTPONE) NIL NIL)) NIL) NIL SHOSTAK
+   (|accel_diff?| SUBTYPE "4" "below[length[MapExpr](o)]" (76 15 76 16)))
+  (|accel_diff?_TCC2-0| "" 3966037068
+   ("" (SUBTYPE-TCC) (("" (POSTPONE) NIL NIL)) NIL) NIL SHOSTAK
+   (|accel_diff?| SUBTYPE "4" "below[length[MapExpr](o)]" (76 15 76 16)))
+  (|accel_diff?_TCC2-1| NIL 3961098210 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|accel_diff?| SUBTYPE "4" "below[length[MapExpr](o)]" (76 15 76 16))))
+ (|accel_diff?_TCC3| 0
+  (|accel_diff?_TCC3-1| NIL 3961098210 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|accel_diff?| SUBTYPE "3" "below[length[MapExpr](o)]" (77 38 77 39))))
+ (|accel_instr?_TCC1| 0
+  (|accel_instr?_TCC1-1| NIL 3961148507 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|accel_instr?| SUBTYPE "dl_flight_trajectories.hp"
+    "{x: HP_adt.HP | booleans.OR(HP_adt.seq?(x), HP_adt.union?(x))}"
+    (79 90 79 92))))
+ (|accel_instr?_TCC2| 0
+  (|accel_instr?_TCC2-1| NIL 3961148507 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|accel_instr?| SUBTYPE "HP_adt.stm2(dl_flight_trajectories.hp)"
+    "{x: HP_adt.HP | booleans.OR(HP_adt.seq?(x), HP_adt.union?(x))}"
+    (79 85 79 93))))
+ (|accel_instr?_TCC3| 0
+  (|accel_instr?_TCC3-1| NIL 3961148507 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|accel_instr?| SUBTYPE
+    "HP_adt.stm1(HP_adt.stm2(dl_flight_trajectories.hp))" "(HP_adt.diff?)"
+    (79 80 79 94))))
+ (|turn_diff?_TCC1| 0
+  (|turn_diff?_TCC1-1| NIL 3961148507 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|turn_diff?| SUBTYPE "3" "below[length[MapExpr](o)]" (85 15 85 16))))
+ (|doubleplus_TCC1| 0
+  (|doubleplus_TCC1-1| NIL 3961096732 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|doubleplus| SUBTYPE
+    "HP_adt.SEQ(dl_flight_trajectories.a, dl_flight_trajectories.b)"
+    "ValidInstructions" (119 6 119 15))))
+ (|action_is_instruction| 0
+  (|action_is_instruction-2| "" 3966041224
+   ("" (SKEEP :PREDS? T)
+    (("" (EXPAND "instruction?")
+      (("" (EXPAND "action?")
+        (("" (SPLIT) (("1" (ASSERT) NIL NIL) ("2" (ASSERT) NIL NIL)) NIL))
+        NIL))
+      NIL))
+    NIL)
+   NIL SHOSTAK
+   (|action_is_instruction| SUBTYPE "dl_flight_trajectories.x"
+    "(dl_flight_trajectories.instruction?)" (127 7 127 14)))
+  (|action_is_instruction-0| "" 3966041160
+   ("" (SKEEP :PREDS? T)
+    (("" (EXPAND "instruction?")
+      (("" (EXPAND "accel_instr?") (("" (POSTPONE) NIL NIL)) NIL)) NIL))
+    NIL)
+   ((|instruction?| CONST-DECL "bool" |dl_flight_trajectories| NIL)
+    (|action?| CONST-DECL "bool" |dl_flight_trajectories| NIL))
+   SHOSTAK
+   (|action_is_instruction| SUBTYPE "dl_flight_trajectories.x"
+    "(dl_flight_trajectories.instruction?)" (127 7 127 14)))
+  (|action_is_instruction-1| NIL 3966041129 ("" (JUDGEMENT-TCC) NIL NIL) NIL
+   NIL
+   (|action_is_instruction| SUBTYPE "dl_flight_trajectories.x"
+    "(dl_flight_trajectories.instruction?)" (127 7 127 14))))
+ (|ValidActions_is_ValidInstuctions| 0
+  (|ValidActions_is_ValidInstuctions-3| "" 3966041318 ("" (POSTPONE) NIL NIL)
+   NIL SHOSTAK
+   (|ValidActions_is_ValidInstuctions| SUBTYPE "dl_flight_trajectories.x"
+    "ValidInstructions" (130 7 130 20)))
+  (|ValidActions_is_ValidInstuctions-0| "" 3966041099
+   ("" (SKEEP :PREDS? T)
+    (("" (EXPAND "valid_actions")
+      (("" (EXPAND "valid_instrs") (("" (POSTPONE) NIL NIL)) NIL)) NIL))
+    NIL)
+   NIL SHOSTAK
+   (|ValidActions_is_ValidInstuctions| SUBTYPE "dl_flight_trajectories.x"
+    "ValidInstructions" (130 7 130 20)))
+  (|ValidActions_is_ValidInstuctions-1| NIL 3966041046
+   ("" (JUDGEMENT-TCC) NIL NIL) NIL NIL
+   (|ValidActions_is_ValidInstuctions| SUBTYPE "dl_flight_trajectories.x"
+    "ValidInstructions" (130 7 130 20))))
+ (|ValidFP_is_ValidInstructions| 0
+  (|ValidFP_is_ValidInstructions-1| NIL 3966041046 ("" (JUDGEMENT-TCC) NIL NIL)
+   NIL NIL
+   (|ValidFP_is_ValidInstructions| SUBTYPE "dl_flight_trajectories.x"
+    "ValidInstructions" (133 7 133 12))))
+ (|init_is_ValidFP| 0
+  (|init_is_ValidFP-5| "" 3966041327
+   ("" (SKEEP :PREDS? T)
+    (("" (EXPAND "valid_fprogram") (("" (PROPAX) NIL NIL)) NIL)) NIL)
+   NIL SHOSTAK
+   (|init_is_ValidFP| SUBTYPE "dl_flight_trajectories.x" "ValidFP"
+    (136 7 136 12)))
+  (|init_is_ValidFP-4| "" 3966040903
+   ("" (SKEEP :PREDS? T)
+    (("" (EXPAND "valid_fprogram") (("" (PROPAX) NIL NIL)) NIL)) NIL)
+   ((|valid_fprogram| INDUCTIVE-DECL "bool" |dl_flight_trajectories| NIL))
+   SHOSTAK
+   (|init_is_ValidFP| SUBTYPE "dl_flight_trajectories.x" "ValidFP"
+    (136 7 136 12)))
+  (|init_is_ValidFP-3| "" 3966040898
+   ("" (SKEEP :PREDS? T)
+    (("" (EXPAND "valid_fprogram") (("" (PROPAX) NIL NIL)) NIL)) NIL)
+   NIL SHOSTAK
+   (|init_is_ValidFP| SUBTYPE "dl_flight_trajectories.x" "ValidFP"
+    (136 7 136 12)))
+  (|init_is_ValidFP-2| "" 3965824836
+   ("" (SKEEP :PREDS? T)
+    (("" (EXPAND "valid_fprogram1") (("" (PROPAX) NIL NIL)) NIL)) NIL)
+   NIL SHOSTAK
+   (|init_is_ValidFP| SUBTYPE "dl_flight_trajectories.x" "ValidFP"
+    (136 7 136 12)))
+  (|init_is_ValidFP-0| "" 3965817628
+   ("" (SKEEP :PREDS? T)
+    (("" (EXPAND "valid_fprogram") (("" (PROPAX) NIL NIL)) NIL)) NIL)
+   NIL SHOSTAK
+   (|init_is_ValidFP| SUBTYPE "dl_flight_trajectories.x" "ValidFP"
+    (136 7 136 12)))
+  (|init_is_ValidFP-1| NIL 3960629534
+   ("" (SKEEP :PREDS? T)
+    (("" (EXPAND "valid_fprogram") (("" (PROPAX) NIL NIL)) NIL)) NIL)
+   NIL NIL
+   (|init_is_ValidFP| SUBTYPE "dl_flight_trajectories.x" "ValidFP"
+    (136 7 136 12))))
+ (|init_TCC1| 0
+  (|init_TCC1-1| NIL 3960449470 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|init| SUBTYPE
+    "(: (dl_flight_trajectories.T, hp_def.cnst(dl_flight_trajectories.T0)), (dl_flight_trajectories.tm, hp_def.cnst(dl_flight_trajectories.tm0)), (dl_flight_trajectories.sx, hp_def.cnst(dl_flight_trajectories.x)), (dl_flight_trajectories.sy, hp_def.cnst(dl_flight_trajectories.y)), (dl_flight_trajectories.gs, hp_def.cnst(dl_flight_trajectories.speed)), (dl_flight_trajectories.trk, hp_def.cnst(dl_flight_trajectories.hding)) :)"
+    "Assigns" (139 13 145 28))))
+ (|init_TCC2| 0
+  (|init_TCC2-1| NIL 3960449470 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|init| SUBTYPE
+    "HP_adt.ASSIGN((: (dl_flight_trajectories.T, hp_def.cnst(dl_flight_trajectories.T0)), (dl_flight_trajectories.tm, hp_def.cnst(dl_flight_trajectories.tm0)), (dl_flight_trajectories.sx, hp_def.cnst(dl_flight_trajectories.x)), (dl_flight_trajectories.sy, hp_def.cnst(dl_flight_trajectories.y)), (dl_flight_trajectories.gs, hp_def.cnst(dl_flight_trajectories.speed)), (dl_flight_trajectories.trk, hp_def.cnst(dl_flight_trajectories.hding)) :))"
+    "(dl_flight_trajectories.init?)" (139 6 145 29))))
+ (|accel_TCC1| 0
+  (|accel_TCC1-1| NIL 3960449470 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|accel| SUBTYPE
+    "(: (dl_flight_trajectories.T, hp_def.cnst(0)), (dl_flight_trajectories.tm, hp_def.cnst(dl_flight_trajectories.t)) :)"
+    "Assigns" (162 15 162 47))))
+ (|accel_TCC2| 0
+  (|accel_TCC2-1| NIL 3960449470 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|accel| SUBTYPE
+    "(: (dl_flight_trajectories.T, hp_def.cnst(1)), (dl_flight_trajectories.sx, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.sin(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.sy, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.cos(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.gs, hp_def.cnst(dl_flight_trajectories.a)), (dl_flight_trajectories.trk, hp_def.cnst(0)) :)"
+    "ODEs" (164 15 169 29))))
+ (|accel_TCC3| 0
+  (|accel_TCC3-1| NIL 3960449470 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|accel| SUBTYPE "dl_flight_trajectories.a" "nznum" (174 63 174 64))))
+ (|accel_TCC4| 0
+  (|accel_TCC4-1| NIL 3965817345 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|accel| SUBTYPE
+    "HP_adt.SEQ(HP_adt.ASSIGN((: (dl_flight_trajectories.T, hp_def.cnst(0)), (dl_flight_trajectories.tm, hp_def.cnst(dl_flight_trajectories.t)) :)), HP_adt.SEQ(HP_adt.DIFF((: (dl_flight_trajectories.T, hp_def.cnst(1)), (dl_flight_trajectories.sx, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.sin(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.sy, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.cos(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.gs, hp_def.cnst(dl_flight_trajectories.a)), (dl_flight_trajectories.trk, hp_def.cnst(0)) :), LAMBDA (e: hp_def.Environment): reals.>=(hp_def.val(dl_flight_trajectories.gs)(e), 0)), HP_adt.TEST(LAMBDA (e: hp_def.Environment): IF reals.>=(dl_flight_trajectories.a, 0) THEN hp_def.val(dl_flight_trajectories.T)(e) = dl_flight_trajectories.t ELSE hp_def.val(dl_flight_trajectories.T)(e) = real_defs.min(number_fields./((number_fields.-)(((number_fields.-)(hp_def.val(dl_flight_trajectories.gs)(e), (number_fields.*(dl_flight_trajectories.a, hp_def.val(dl_flight_trajectories.T)(e)))))), dl_flight_trajectories.a), dl_flight_trajectories.t) ENDIF)))"
+    "(dl_flight_trajectories.accel_instr?)" (161 6 177 7))))
+ (|linear_TCC1| 0
+  (|linear_TCC1-1| NIL 3966041178 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|linear| SUBTYPE
+    "dl_flight_trajectories.accel(0, dl_flight_trajectories.t)"
+    "(dl_flight_trajectories.instruction?)" (185 49 185 60))))
+ (|turn_TCC1| 0
+  (|turn_TCC1-1| NIL 3960449470 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|turn| SUBTYPE
+    "(: (dl_flight_trajectories.T, hp_def.cnst(1)), (dl_flight_trajectories.sx, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.sin(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.sy, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.cos(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.gs, hp_def.cnst(0)), (dl_flight_trajectories.trk, hp_def.cnst(dl_flight_trajectories.turn_rate)) :)"
+    "ODEs" (198 15 204 12))))
+ (|turn_TCC2| 0
+  (|turn_TCC2-2| "" 3961149456
+   ("" (SKEEP)
+    (("" (TYPEPRED "turn_rate")
+      (("" (TYPEPRED "t")
+        (("" (EXPAND "turn_instr?")
+          (("" (SPLIT)
+            (("1" (EXPAND "instruction?")
+              (("1" (SPLIT)
+                (("1" (EXPAND "valid_i_assign")
+                  (("1" (SKEEP)
+                    (("1" (TYPEPRED "i")
+                      (("1" (SPLIT)
+                        (("1" (GRIND) NIL NIL)
+                         ("2" (EXPAND "nth")
+                          (("2" (LIFT-IF)
+                            (("2" (SPLIT)
+                              (("1" (PROPAX) NIL NIL)
+                               ("2" (FLATTEN)
+                                (("2" (EXPAND "nth")
+                                  (("2" (LIFT-IF)
+                                    (("2" (SPLIT)
+                                      (("1" (PROPAX) NIL NIL)
+                                       ("2" (FLATTEN)
+                                        (("2" (EXPAND "nth")
+                                          (("2" (LIFT-IF)
+                                            (("2" (SPLIT)
+                                              (("1" (FLATTEN)
+                                                (("1" (EXPAND "length" -2)
+                                                  (("1" (EXPAND "length" -2)
+                                                    (("1" (EXPAND "length" -2)
+                                                      (("1" (ASSERT) NIL NIL))
+                                                      NIL))
+                                                    NIL))
+                                                  NIL))
+                                                NIL)
+                                               ("2" (FLATTEN)
+                                                (("2" (ASSERT)
+                                                  (("2" (EXPAND "nth")
+                                                    (("2" (LIFT-IF)
+                                                      (("2"
+                                                        (EXPAND "length" -1)
+                                                        (("2"
+                                                          (EXPAND "length" -1)
+                                                          (("2"
+                                                            (EXPAND "length"
+                                                                    -1)
+                                                            (("2" (ASSERT) NIL
+                                                              NIL))
+                                                            NIL))
+                                                          NIL))
+                                                        NIL))
+                                                      NIL))
+                                                    NIL))
+                                                  NIL))
+                                                NIL))
+                                              NIL))
+                                            NIL))
+                                          NIL))
+                                        NIL))
+                                      NIL))
+                                    NIL))
+                                  NIL))
+                                NIL))
+                              NIL))
+                            NIL))
+                          NIL))
+                        NIL))
+                      NIL))
+                    NIL))
+                  NIL)
+                 ("2" (EXPAND "valid_i_diff")
+                  (("2" (SKEEP)
+                    (("2" (TYPEPRED "i")
+                      (("2" (EXPAND "length" -1)
+                        (("2" (EXPAND "length" -1)
+                          (("2" (EXPAND "length" -1)
+                            (("2" (EXPAND "length" -1)
+                              (("2" (EXPAND "length" -1)
+                                (("2" (EXPAND "length" -1)
+                                  (("2" (SPLIT)
+                                    (("1" (GRIND) NIL NIL)
+                                     ("2" (EXPAND "nth")
+                                      (("2" (LIFT-IF)
+                                        (("2" (SPLIT)
+                                          (("1" (PROPAX) NIL NIL)
+                                           ("2" (FLATTEN)
+                                            (("2" (EXPAND "nth")
+                                              (("2" (LIFT-IF)
+                                                (("2" (SPLIT)
+                                                  (("1" (PROPAX) NIL NIL)
+                                                   ("2" (FLATTEN)
+                                                    (("2" (EXPAND "nth")
+                                                      (("2" (LIFT-IF)
+                                                        (("2" (SPLIT)
+                                                          (("1" (PROPAX) NIL
+                                                            NIL)
+                                                           ("2" (FLATTEN)
+                                                            (("2"
+                                                              (EXPAND "nth")
+                                                              (("2" (LIFT-IF)
+                                                                (("2" (SPLIT)
+                                                                  (("1"
+                                                                    (PROPAX)
+                                                                    NIL NIL)
+                                                                   ("2"
+                                                                    (FLATTEN)
+                                                                    (("2"
+                                                                      (EXPAND
+                                                                       "nth")
+                                                                      (("2"
+                                                                        (LIFT-IF)
+                                                                        (("2"
+                                                                          (SPLIT)
+                                                                          (("1"
+                                                                            (PROPAX)
+                                                                            NIL
+                                                                            NIL)
+                                                                           ("2"
+                                                                            (FLATTEN)
+                                                                            (("2"
+                                                                              (EXPAND
+                                                                               "nth")
+                                                                              (("2"
+                                                                                (ASSERT)
+                                                                                NIL
+                                                                                NIL))
+                                                                              NIL))
+                                                                            NIL))
+                                                                          NIL))
+                                                                        NIL))
+                                                                      NIL))
+                                                                    NIL))
+                                                                  NIL))
+                                                                NIL))
+                                                              NIL))
+                                                            NIL))
+                                                          NIL))
+                                                        NIL))
+                                                      NIL))
+                                                    NIL))
+                                                  NIL))
+                                                NIL))
+                                              NIL))
+                                            NIL))
+                                          NIL))
+                                        NIL))
+                                      NIL))
+                                    NIL))
+                                  NIL))
+                                NIL))
+                              NIL))
+                            NIL))
+                          NIL))
+                        NIL))
+                      NIL))
+                    NIL))
+                  NIL)
+                 ("3" (EXPAND "valid_be_diff") (("3" (PROPAX) NIL NIL)) NIL))
+                NIL))
+              NIL)
+             ("2" (EXPAND "turn_diff?")
+              (("2" (SKEEP)
+                (("2" (SPLIT)
+                  (("1" (GRIND) NIL NIL)
+                   ("2" (EXPAND "nth")
+                    (("2" (EXPAND "cnst") (("2" (PROPAX) NIL NIL)) NIL)) NIL)
+                   ("3" (EXPAND "nth" 1)
+                    (("3" (EXPAND "nth" 1)
+                      (("3" (EXPAND "nth" 1)
+                        (("3" (EXPAND "nth" 1)
+                          (("3" (EXPAND "cnst") (("3" (PROPAX) NIL NIL)) NIL))
+                          NIL))
+                        NIL))
+                      NIL))
+                    NIL)
+                   ("4" (INST 1 "turn_rate")
+                    (("4" (EXPAND "nth" 1)
+                      (("4" (EXPAND "nth" 1)
+                        (("4" (EXPAND "nth" 1)
+                          (("4" (EXPAND "nth" 1)
+                            (("4" (EXPAND "nth" 1)
+                              (("4" (EXPAND "cnst") (("4" (PROPAX) NIL NIL))
+                                NIL))
+                              NIL))
+                            NIL))
+                          NIL))
+                        NIL))
+                      NIL))
+                    NIL))
+                  NIL))
+                NIL))
+              NIL))
+            NIL))
+          NIL))
+        NIL))
+      NIL))
+    NIL)
+   NIL SHOSTAK
+   (|turn| SUBTYPE
+    "HP_adt.SEQ(HP_adt.ASSIGN((: (dl_flight_trajectories.T, hp_def.cnst(0)), (dl_flight_trajectories.tm, hp_def.cnst(dl_flight_trajectories.t)) :)), HP_adt.SEQ(HP_adt.DIFF((: (dl_flight_trajectories.T, hp_def.cnst(1)), (dl_flight_trajectories.sx, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.sin(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.sy, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.cos(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.gs, hp_def.cnst(0)), (dl_flight_trajectories.trk, hp_def.cnst(dl_flight_trajectories.turn_rate)) :), LAMBDA (e: hp_def.Environment): reals.>=(hp_def.val(dl_flight_trajectories.gs)(e), 0)), HP_adt.TEST(LAMBDA (e: hp_def.Environment): booleans.AND(hp_def.val(dl_flight_trajectories.T)(e) = dl_flight_trajectories.t, reals.>=(hp_def.val(dl_flight_trajectories.gs)(e), 0)))))"
+    "(dl_flight_trajectories.turn_instr?)" (192 6 208 7)))
+  (|turn_TCC2-0| "" 3961149303
+   ("" (SKEEP)
+    (("" (TYPEPRED "turn_rate")
+      (("" (TYPEPRED "t")
+        (("" (EXPAND "turn_instr?")
+          (("" (SPLIT)
+            (("1" (EXPAND "instruction?")
+              (("1" (SPLIT)
+                (("1" (EXPAND "valid_i_assign")
+                  (("1" (SKEEP)
+                    (("1" (TYPEPRED "i")
+                      (("1" (SPLIT)
+                        (("1" (GRIND) NIL NIL)
+                         ("2" (EXPAND "nth")
+                          (("2" (LIFT-IF)
+                            (("2" (SPLIT)
+                              (("1" (PROPAX) NIL NIL)
+                               ("2" (FLATTEN)
+                                (("2" (EXPAND "nth")
+                                  (("2" (LIFT-IF)
+                                    (("2" (SPLIT)
+                                      (("1" (PROPAX) NIL NIL)
+                                       ("2" (FLATTEN)
+                                        (("2" (EXPAND "nth")
+                                          (("2" (LIFT-IF)
+                                            (("2" (SPLIT)
+                                              (("1" (FLATTEN)
+                                                (("1" (EXPAND "length" -2)
+                                                  (("1" (EXPAND "length" -2)
+                                                    (("1" (EXPAND "length" -2)
+                                                      (("1" (ASSERT) NIL NIL))
+                                                      NIL))
+                                                    NIL))
+                                                  NIL))
+                                                NIL)
+                                               ("2" (FLATTEN)
+                                                (("2" (ASSERT)
+                                                  (("2" (EXPAND "nth")
+                                                    (("2" (LIFT-IF)
+                                                      (("2"
+                                                        (EXPAND "length" -1)
+                                                        (("2"
+                                                          (EXPAND "length" -1)
+                                                          (("2"
+                                                            (EXPAND "length"
+                                                                    -1)
+                                                            (("2" (ASSERT) NIL
+                                                              NIL))
+                                                            NIL))
+                                                          NIL))
+                                                        NIL))
+                                                      NIL))
+                                                    NIL))
+                                                  NIL))
+                                                NIL))
+                                              NIL))
+                                            NIL))
+                                          NIL))
+                                        NIL))
+                                      NIL))
+                                    NIL))
+                                  NIL))
+                                NIL))
+                              NIL))
+                            NIL))
+                          NIL))
+                        NIL))
+                      NIL))
+                    NIL))
+                  NIL)
+                 ("2" (EXPAND "valid_i_diff")
+                  (("2" (SKEEP)
+                    (("2" (TYPEPRED "i")
+                      (("2" (EXPAND "length" -1)
+                        (("2" (EXPAND "length" -1)
+                          (("2" (EXPAND "length" -1)
+                            (("2" (EXPAND "length" -1)
+                              (("2" (EXPAND "length" -1)
+                                (("2" (EXPAND "length" -1)
+                                  (("2" (SPLIT)
+                                    (("1" (GRIND) NIL NIL)
+                                     ("2" (EXPAND "nth")
+                                      (("2" (LIFT-IF)
+                                        (("2" (SPLIT)
+                                          (("1" (PROPAX) NIL NIL)
+                                           ("2" (FLATTEN)
+                                            (("2" (EXPAND "nth")
+                                              (("2" (LIFT-IF)
+                                                (("2" (SPLIT)
+                                                  (("1" (PROPAX) NIL NIL)
+                                                   ("2" (FLATTEN)
+                                                    (("2" (EXPAND "nth")
+                                                      (("2" (LIFT-IF)
+                                                        (("2" (SPLIT)
+                                                          (("1" (PROPAX) NIL
+                                                            NIL)
+                                                           ("2" (FLATTEN)
+                                                            (("2"
+                                                              (EXPAND "nth")
+                                                              (("2" (LIFT-IF)
+                                                                (("2" (SPLIT)
+                                                                  (("1"
+                                                                    (PROPAX)
+                                                                    NIL NIL)
+                                                                   ("2"
+                                                                    (FLATTEN)
+                                                                    (("2"
+                                                                      (EXPAND
+                                                                       "nth")
+                                                                      (("2"
+                                                                        (LIFT-IF)
+                                                                        (("2"
+                                                                          (SPLIT)
+                                                                          (("1"
+                                                                            (PROPAX)
+                                                                            NIL
+                                                                            NIL)
+                                                                           ("2"
+                                                                            (FLATTEN)
+                                                                            (("2"
+                                                                              (EXPAND
+                                                                               "nth")
+                                                                              (("2"
+                                                                                (ASSERT)
+                                                                                NIL
+                                                                                NIL))
+                                                                              NIL))
+                                                                            NIL))
+                                                                          NIL))
+                                                                        NIL))
+                                                                      NIL))
+                                                                    NIL))
+                                                                  NIL))
+                                                                NIL))
+                                                              NIL))
+                                                            NIL))
+                                                          NIL))
+                                                        NIL))
+                                                      NIL))
+                                                    NIL))
+                                                  NIL))
+                                                NIL))
+                                              NIL))
+                                            NIL))
+                                          NIL))
+                                        NIL))
+                                      NIL))
+                                    NIL))
+                                  NIL))
+                                NIL))
+                              NIL))
+                            NIL))
+                          NIL))
+                        NIL))
+                      NIL))
+                    NIL))
+                  NIL)
+                 ("3" (EXPAND "valid_be_diff") (("3" (PROPAX) NIL NIL)) NIL))
+                NIL))
+              NIL)
+             ("2" (EXPAND "turn_diff?")
+              (("2" (SKEEP)
+                (("2" (SPLIT)
+                  (("1" (GRIND) NIL NIL)
+                   ("2" (EXPAND "nth")
+                    (("2" (EXPAND "cnst") (("2" (PROPAX) NIL NIL)) NIL)) NIL)
+                   ("3" (EXPAND "nth" 1)
+                    (("3" (EXPAND "nth" 1)
+                      (("3" (EXPAND "nth" 1)
+                        (("3" (EXPAND "nth" 1)
+                          (("3" (EXPAND "cnst") (("3" (PROPAX) NIL NIL)) NIL))
+                          NIL))
+                        NIL))
+                      NIL))
+                    NIL)
+                   ("4" (INST 1 "0")
+                    (("4" (EXPAND "nth" 1)
+                      (("4" (EXPAND "nth" 1)
+                        (("4" (EXPAND "nth" 1)
+                          (("4" (EXPAND "nth" 1)
+                            (("4" (EXPAND "nth" 1)
+                              (("4" (EXPAND "cnst") (("4" (POSTPONE) NIL NIL))
+                                NIL))
+                              NIL))
+                            NIL))
+                          NIL))
+                        NIL))
+                      NIL))
+                    NIL))
+                  NIL))
+                NIL))
+              NIL))
+            NIL))
+          NIL))
+        NIL))
+      NIL))
+    NIL)
+   ((|val| CONST-DECL "real" |hp_def| |dL|)
+    (|dLVar| TYPE-DECL NIL |hp_def| |dL|)
+    (|Environment| TYPE-EQ-DECL NIL |hp_def| |dL|)
+    (|RealExpr| TYPE-EQ-DECL NIL |hp_def| |dL|)
+    (|MapExpr| TYPE-EQ-DECL NIL |hp_def| |dL|)
+    (|list| TYPE-DECL NIL |list_adt| NIL)
+    (|cons?| ADT-RECOGNIZER-DECL "[list -> boolean]" |list_adt| NIL)
+    (|cons| ADT-CONSTRUCTOR-DECL "[[T, list] -> (cons?)]" |list_adt| NIL)
+    (|cnst| CONST-DECL "real" |hp_def| |dL|)
+    (|null_MapExprInj| NAME-JUDGEMENT "MapExprInj" |hp_def| |dL|))
+   SHOSTAK
+   (|turn| SUBTYPE
+    "HP_adt.SEQ(HP_adt.ASSIGN((: (dl_flight_trajectories.T, hp_def.cnst(0)), (dl_flight_trajectories.tm, hp_def.cnst(dl_flight_trajectories.t)) :)), HP_adt.SEQ(HP_adt.DIFF((: (dl_flight_trajectories.T, hp_def.cnst(1)), (dl_flight_trajectories.sx, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.sin(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.sy, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.cos(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.gs, hp_def.cnst(0)), (dl_flight_trajectories.trk, hp_def.cnst(dl_flight_trajectories.turn_rate)) :), LAMBDA (e: hp_def.Environment): reals.>=(hp_def.val(dl_flight_trajectories.gs)(e), 0)), HP_adt.TEST(LAMBDA (e: hp_def.Environment): booleans.AND(hp_def.val(dl_flight_trajectories.T)(e) = dl_flight_trajectories.t, reals.>=(hp_def.val(dl_flight_trajectories.gs)(e), 0)))))"
+    "(dl_flight_trajectories.turn_instr?)" (192 6 208 7)))
+  (|turn_TCC2-1| NIL 3960449470 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|turn| SUBTYPE
+    "HP_adt.SEQ(HP_adt.ASSIGN((: (dl_flight_trajectories.T, hp_def.cnst(0)), (dl_flight_trajectories.tm, hp_def.cnst(dl_flight_trajectories.t)) :)), HP_adt.SEQ(HP_adt.DIFF((: (dl_flight_trajectories.T, hp_def.cnst(1)), (dl_flight_trajectories.sx, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.sin(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.sy, LAMBDA (e: hp_def.Environment): number_fields.*(hp_def.val(dl_flight_trajectories.gs)(e), sincos_def.cos(hp_def.val(dl_flight_trajectories.trk)(e)))), (dl_flight_trajectories.gs, hp_def.cnst(0)), (dl_flight_trajectories.trk, hp_def.cnst(dl_flight_trajectories.turn_rate)) :), LAMBDA (e: hp_def.Environment): reals.>=(hp_def.val(dl_flight_trajectories.gs)(e), 0)), HP_adt.TEST(LAMBDA (e: hp_def.Environment): booleans.AND(hp_def.val(dl_flight_trajectories.T)(e) = dl_flight_trajectories.t, reals.>=(hp_def.val(dl_flight_trajectories.gs)(e), 0)))))"
+    "(dl_flight_trajectories.turn_instr?)" (192 6 208 7)))))
+

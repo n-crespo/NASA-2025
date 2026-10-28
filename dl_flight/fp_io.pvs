@@ -1,0 +1,41 @@
+fp_io : THEORY
+BEGIN
+
+  IMPORTING dl_path_action_example,
+            dl_flight_fp_io[ T, tm, sx, sy, gs, trk ],
+            dl_flight_pp[ T, tm, sx, sy, gs, trk ],
+            aviation@units
+
+
+  dl_flight_pp_test : LEMMA
+    dl_wps(init(0,0,120, 90*pi/180) ++
+      linear(30) ++
+      turn(3*pi/180,30) ++
+      linear(30) ++
+      turn(-3*pi/180,30) ++
+      linear(60)) = (: :)
+
+  AC0 : void =
+    dl_writer_states("AC0pc",
+      init(0,0,120, 90*pi/180) ++
+      linear(30) ++
+      turn(3*pi/180,30) ++
+      linear(30) ++
+      turn(-3*pi/180,30) ++
+      linear(60), 1)
+
+  AC1 : void =
+    dl_writer_states("AC1pc",
+      init(0,0, 120, 45*pi/180) ++
+      accel(0.1, 60) ++
+      turn(3*pi/180, 15) ++
+      accel(-0.1, 60) ++
+      turn(-3*pi/180,30) ++
+      linear(60), 1)
+
+  AC2 : void =
+    dl_writer_states("AC2pc",
+    init(0,0,100, 0)++
+    accel(-10, 15)++linear(10), 1)
+
+END fp_io

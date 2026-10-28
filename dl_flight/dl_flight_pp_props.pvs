@@ -1,0 +1,153 @@
+%%
+% @theory: dl_flight_pp_props
+% @author: bmvelasq
+% @date: Fri, 25 Jul 2025 02:34:39 GMT
+%%
+dl_flight_pp_props[(IMPORTING dL@top)  T, tm, sx, sy, gs, trk : dLVar] : THEORY
+  BEGIN
+
+    ASSUMING
+       list_of_correct_var : list[dLVar] = (:  T, tm, sx, sy, gs, trk  :)
+
+       distinct_vars : ASSUMPTION
+         pairwise_distinct_vars?(list_of_correct_var)
+
+    ENDASSUMING
+
+
+
+  IMPORTING dl_flight_pp[ T, tm, sx, sy, gs, trk ],
+            deriv_if_fun,
+            discont_ft[real]
+
+  %% dl_traject_prop
+
+    % Q.E.D.
+    length_assigns : LEMMA
+      FORALL (i : below(length(list_of_correct_var)),fp : ValidFP) :
+        assign?(fp) IMPLIES i < length(assigns(fp))
+  %% DL_WPS PROPS
+
+    % Q.E.D.
+    cons_dl_wps : LEMMA
+      FORALL (hp : ValidFP) :
+          cons?(dl_wps(hp))
+
+  %% TIME PROPS
+
+    dl_state_t_lwp : LEMMA
+      FORALL (fp : ValidFP) :
+        dl_state_t(fp)(ts(last(dl_wps(fp)))) = last(dl_wps(fp))
+
+    calc_s_wp : LEMMA
+      FORALL (fp : ValidFP, instr : (instruction?)) :
+        calc_s(last(dl_wps(fp)), instr)(ts(last(dl_wps(fp)))) = last(dl_wps(fp))
+
+    last_eq_dl_state_t_last : LEMMA
+    FORALL (fp : ValidFP, instr : (instruction?)) :
+      calc_s(last(dl_wps(fp)), instr)(ts(last(dl_wps(fp)))) = dl_state_t(fp)(ts(last(dl_wps(fp))))
+
+  % DIFFERENTIAL PROPERTY
+
+    % T DERIVABLE
+
+      % Q.E.D.
+      time_consist : LEMMA
+        FORALL (hp : ValidFP, x :real) :
+          ts(dl_state_t(hp)(x)) = x
+
+      % LONG PROOF THAT I BELIEVE TO BE TRUE NEEDS TO BE PROVEN
+      deriv_ts_eq : LEMMA
+        FORALL (hp : ValidFP) :
+          deriv((LAMBDA (t: real) : ts(dl_state_t(hp)(t)))) = (LAMBDA (t: real) : 1)
+
+      % Q.E.D.
+      deriv_t_dl_state_t : LEMMA
+        FORALL (hp : ValidFP) :
+          differentiable?[real](LAMBDA(t : real) : ts(dl_state_t(hp)(t)))
+
+    % X-POSITION DERIVABLE
+
+    % LONG PROOF THAT I BELIEVE TO BE TRUE NEEDS TO BE PROVEN
+      last_bp_px_eq : LEMMA
+        FORALL (fp : ValidFP, instr : (instruction?)) :
+          deriv(LAMBDA (t: real) : px(calc_s(last(dl_wps(fp)), instr)(t)))(ts(last(dl_wps(fp))))
+          = deriv(LAMBDA (t: real) : px(dl_state_t(fp)(t)))(ts(last(dl_wps(fp))))
+
+
+      % Q.E.D.
+      deriv_px_calc_s : LEMMA
+        FORALL (ac : AircraftState, instr : (instruction?)) :
+          differentiable?[real](LAMBDA (t: real) : px(calc_s(ac, instr)(t)))
+
+      % Q.E.D.
+      deriv_px_dl_state_t : LEMMA
+        FORALL (hp : ValidFP) :
+          differentiable?[real](LAMBDA(t : real) : px(dl_state_t(hp)(t)))
+
+    % Y-POSITION DERIVABLE
+
+      % LONG PROOF THAT I BELIEVE TO BE TRUE NEEDS TO BE PROVEN
+      last_bp_py_eq : LEMMA
+        FORALL (fp : ValidFP, instr : (instruction?)) :
+          deriv(LAMBDA (t: real) : py(calc_s(last(dl_wps(fp)), instr)(t)))(ts(last(dl_wps(fp))))
+          = deriv(LAMBDA (t: real) : py(dl_state_t(fp)(t)))(ts(last(dl_wps(fp))))
+
+      % Q.E.D.
+      deriv_py_calc_s : LEMMA
+        FORALL (ac : AircraftState, instr : (instruction?)) :
+          differentiable?[real](LAMBDA (t: real) : py(calc_s(ac, instr)(t)))
+
+      % Q.E.D.
+      deriv_py_dl_state_t : LEMMA
+        FORALL (hp : ValidFP) :
+          differentiable?[real](LAMBDA(t : real) : py(dl_state_t(hp)(t)))
+
+  %% CONTINUOUS PROPERTY
+
+    % TIME CONTINUITY
+
+      % Q.E.D.
+      cont_ts_dl_state_t : LEMMA
+        FORALL (hp : ValidFP) :
+          continuous?[real](LAMBDA(t : real) : ts(dl_state_t(hp)(t)))
+
+    % GROUND SPEED CONTINUITY
+
+      % Q.E.D.
+      cont_grs_calc_s : LEMMA
+        FORALL (ac : AircraftState, instr : (instruction?)) :
+          continuous?[real](LAMBDA(t : real) : grs(calc_s(ac, instr)(t)))
+
+      % Q.E.D.
+      cont_grs_dl_state_t : LEMMA
+        FORALL (hp : ValidFP) :
+          continuous?[real](LAMBDA(t : real) : grs(dl_state_t(hp)(t)))
+
+    % TRACK CONTINUITY
+
+      % Q.E.D.
+      cont_trk_calc_s : LEMMA
+        FORALL (ac : AircraftState, instr : (instruction?)) :
+          continuous?[real](LAMBDA(t : real) : trck(calc_s(ac, instr)(t)))
+
+      % Q.E.D.
+      cont_trk_dl_state_t : LEMMA
+        FORALL (hp : ValidFP) :
+          continuous?[real](LAMBDA(t : real) : trck(dl_state_t(hp)(t)))
+
+    % X-POSITION CONTINUITY
+
+      % Q.E.D.
+      cont_px_dl_state_t : LEMMA
+        FORALL (hp : ValidFP) :
+          continuous?[real](LAMBDA(t : real) : px(dl_state_t(hp)(t)))
+
+    % Y-POSITION CONTINUITY
+
+      % Q.E.D.
+      cont_py_dl_state_t : LEMMA
+        FORALL (hp : ValidFP) :
+          continuous?[real](LAMBDA(t : real) : py(dl_state_t(hp)(t)))
+
+  END dl_flight_pp_props

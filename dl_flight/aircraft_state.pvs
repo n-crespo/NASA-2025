@@ -1,0 +1,13 @@
+aircraft_state : THEORY
+BEGIN
+
+  IMPORTING aviation@units
+
+  AircraftState : TYPE =[#
+    px,py,grs,trck,ts : real
+  #]
+
+  mk_aircraft_state(x,y,g_s,tk, t:real) : AircraftState =
+    (# px := x, py := y, grs := g_s, trck:= tk,ts:= t #)
+
+END aircraft_state

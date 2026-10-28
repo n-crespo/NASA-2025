@@ -1,0 +1,59 @@
+%%
+% @theory: dl_flight_fp_io
+% @author: bmvelasq
+% @date: Thu, 26 Jun 2025 13:50:16 GMT
+%%
+dl_flight_fp_io[(IMPORTING dL@top)  T, tm, sx, sy, gs, trk : dLVar] : THEORY
+BEGIN
+
+  ASSUMING
+       list_of_correct_var : list[dLVar] = (:  T, tm, sx, sy, gs, trk  :)
+
+       distinct_vars : ASSUMPTION
+         pairwise_distinct_vars?(list_of_correct_var)
+
+  ENDASSUMING
+
+  IMPORTING dl_flight_pp[ T, tm, sx, sy, gs, trk ]
+
+  % Calculates vx based on gs and trk of aircraft state
+  get_vx(ac : AircraftState) : real =
+    grs(ac) * sin(trck(ac))
+
+  get_vy(ac : AircraftState) : real =
+    grs(ac) * cos(trck(ac))
+
+  % Writes an aircraft state to a file
+  write_as(out : OStream, a_s : AircraftState, id : string) : void =
+    fprintf(
+      out, "~a,~a,~a,~a,~a,~a,~a,~f~%",
+      {|id, real2str(px(a_s)), real2str(py(a_s)), "300",
+            real2str(get_vx(a_s)),real2str(get_vy(a_s)), "0", ts(a_s)|})
+
+ % Writes a list of aircraft states to a file
+  write_ac(out : OStream, ac : list[AircraftState], id : string) : RECURSIVE void =
+    CASES ac OF
+      null : skip,
+      cons(a_s, t) : write_as(out, a_s, id) & write_ac(out, t, id)
+    ENDCASES
+    MEASURE ac BY <<
+
+  % Opens a file and sets up formating to print out a list of aircraft states
+  dl_writer(id : string, ac : list[AircraftState]) : void =
+    LET fname = id+".xyz" IN
+    printf("Writing to ~a",fname) &
+    with_openout_file(create,fname,
+      LAMBDA(out : OStream):
+        fprintf(out,"NAME sx sy sz vx vy vz time~%") &
+        fprintf(out,"[none] [~a] [~a] [~a] [~a] [~a] [~a] [~a]~%",
+          {| "m", "m", "m", "m/s", "m/s", "m/s", "s" |}) &
+        write_ac(out, ac, id))
+
+  % Prints out t aircraft states for every second
+  dl_writer_states(id : string, hp : ValidFP, deltaT : posreal) : void =
+    LET
+      states = dl_states_pp(hp, deltaT)
+    IN
+      dl_writer(id, states)
+
+  END dl_flight_fp_io

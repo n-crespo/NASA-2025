@@ -1,0 +1,151 @@
+%%
+% @theory: dl_path_action
+% @author: Nicolas Crespo
+% @date: 2025-07-10 17:17
+%%
+
+dl_path_action[(IMPORTING dL@top) T, tm, sx, sy, gs, trk: dLVar]: THEORY
+BEGIN
+  ASSUMING
+    list_of_correct_var : list[dLVar] = (: T, tm, sx, sy, gs, trk :)
+    distinct_vars : ASSUMPTION
+      pairwise_distinct_vars?(list_of_correct_var)
+  ENDASSUMING
+
+  IMPORTING dl_flight_trajectories[T, tm, sx, sy, gs, trk],
+            dl_trajectory_continuous[T, tm, sx, sy, gs, trk],
+            trig@trig_basic,
+            trig@to2pi,
+            reals@reals_safe_ops,
+            trig@trig_values,trig@trig_rew
+
+  a              : VAR real
+  t              : VAR posreal
+  Q, P, smaller  : VAR BoolExpr
+  fp             : VAR ValidFP
+  turn_rate      : VAR nonzero_real % a turn rate of zero in a turn() is the same as accel()
+  Gamma, Delta   : VAR Formulas
+
+  % Define a rectangular enclosure with some bounds
+  enclosure(lowerX, upperX, lowerY, upperY: real)(e: Environment) : bool =
+    lowerX <= val(sx)(e) <= upperX AND lowerY <= val(sy)(e) <= upperY
+
+  % Define a square centered around the origin
+  enclosure(A, B: real) : MACRO BoolExpr =
+    enclosure(-A,A,-B,B)
+
+% accel------------------------------------------------------------------------
+
+  % ensure we don't decelerate to negative velocity
+  tmin(a:real,t:posreal,gs:nonneg_real) : MACRO real =
+    IF a < 0 THEN min(-gs/a, t) ELSE t ENDIF
+
+  % QED
+  path_accel: LEMMA
+    FORALL(x,y,a,trk,t0,tm0,lowerX,upperX,lowerY,upperY:real,gs:nonneg_real,t:posreal,hp:HP):
+      LET
+        tmin = tmin(a,t,gs),
+        dX = (gs*tmin + 0.5*a*tmin^2) * sin(trk),
+        dY = (gs*tmin + 0.5*a*tmin^2) * cos(trk)
+      IN
+        lowerX <= x <= upperX AND
+        lowerY <= y <= upperY AND
+        lowerX <= x + dX <= upperX AND
+        lowerY <= y + dY <= upperY AND
+        (Gamma |-
+          ALLRUNS(
+            SEQ(init(x+dX, y+dY, gs+a*tmin, trk, tmin, t), hp),
+            enclosure(lowerX, upperX, lowerY, upperY)
+        )) IMPLIES
+        (Gamma |-
+          ALLRUNS(
+            SEQ(init(x,y,gs,trk,t0,tm0), SEQ(accel(a,t), hp)),
+            enclosure(lowerX, upperX, lowerY, upperY)
+        ))
+
+  % QED
+  path_accel_base: LEMMA
+    FORALL(x,y,a,trk,t0,tm0,lowerX,upperX,lowerY,upperY:real,gs:nonneg_real,t:posreal):
+      LET
+        tmin = tmin(a,t,gs),
+        dX = (gs*tmin + 0.5*a*tmin^2) * sin(trk),
+        dY = (gs*tmin + 0.5*a*tmin^2) * cos(trk)
+      IN
+        lowerX <= x <= upperX AND
+        lowerY <= y <= upperY AND
+        lowerX <= x + dX <= upperX AND
+        lowerY <= y + dY <= upperY AND
+        (Gamma |-
+          ALLRUNS(
+            init(x+dX, y+dY, gs+a*tmin, trk, tmin, t),
+            enclosure(lowerX, upperX, lowerY, upperY)
+        )) IMPLIES
+        (Gamma |-
+          ALLRUNS(
+            SEQ(init(x, y, gs, trk, t0, tm0), accel(a,t)),
+            enclosure(lowerX, upperX, lowerY, upperY)
+        ))
+
+  % QED
+  associative_seq : LEMMA
+    FORALL(a, b, c:HP, p:BoolExpr):
+      ALLRUNS(SEQ(SEQ(a, b), c),p) = ALLRUNS(SEQ(a, SEQ(b, c)), p)
+
+% turn-------------------------------------------------------------------------
+
+  % maybe use: nasalib/trig/law_cosines.pvs ?
+  law_of_cos(a,b,gamma:real) : real =
+    sqrt(a^2 + b^2 - 2*a*b*cos(gamma))
+
+  % unproved/untested
+  % NOTE: may not be correct.
+  path_turn: LEMMA
+    FORALL(x,y,trk,t0,tm0,lowerX,upperX,lowerY,upperY:real,turn_rate:nonzero_real,gs:nonneg_real,t:posreal,hp:HP):
+      LET
+        trk0 = to2pi(trk), % where we are on the unit circle to start
+        trk_final = sign(turn_rate)*turn_rate*t + trk0, % where we are on the unit circle at time t
+
+        % the angle at which the north- south- east- and west- most points in the turn are reached
+        trk_east = IF turn_rate < 0 THEN 2*pi ELSE pi ENDIF,
+        trk_north = pi/2,
+        trk_south = 3*pi/2,
+        trk_west = IF turn_rate < 0 THEN pi ELSE 2*pi ENDIF,
+
+        % use law of cosines to find distance between extreme-most points within
+        % the turn and the original point. This must then be decomposed into X
+        % and Y. Use IFTE so to only use intermediate that we have passed during
+        % the turn.
+        r = gs/abs(turn_rate),
+        dNorth = IF trk0 < trk_north < trk_final THEN law_of_cos(r,r,trk_north-trk0)*cos(trk0) ELSE 0 ENDIF,
+        dSouth = IF trk0 < trk_south < trk_final THEN law_of_cos(r,r,trk_south-trk0)*cos(trk0) ELSE 0 ENDIF,
+        dEast  = IF trk0 < trk_east  < trk_final THEN law_of_cos(r,r,trk_east-trk0)*sin(trk0) ELSE 0 ENDIF,
+        dWest  = IF trk0 < trk_west  < trk_final THEN law_of_cos(r,r,trk_west-trk0)*sin(trk0) ELSE 0 ENDIF,
+
+        % distance to final position in turn
+        dX = (gs/turn_rate)*(cos(trk) - cos(trk+turn_rate*t)),
+        dY = (gs/turn_rate)*(sin(trk) - sin(trk+turn_rate*t))
+      IN
+      % verify we started safe
+      lowerX <= x <= upperX AND
+      lowerY <= y <= upperY AND
+
+      % verify end point of turn is safe
+      lowerX <= x + dX <= upperX AND
+      lowerY <= y + dY <= upperY AND
+
+      %  verify intermediate points in turn are safe
+      %  (check north- south- east- and west-most points)
+      x <= upperX - dEast AND lowerX + dWest <= x AND
+      y <= upperY - dNorth AND lowerY + dSouth <= y AND
+      (Gamma |-
+        ALLRUNS(
+          SEQ(init(x+sin(trk), y+cos(trk), gs, trk + turn_rate*t, t, t), hp),
+          enclosure(lowerX, upperX, lowerY, upperY)
+      )) IMPLIES
+      (Gamma |-
+        ALLRUNS(
+          SEQ(init(x,y,gs,trk,t0,tm0), SEQ(turn(turn_rate, t), hp)),
+          enclosure(lowerX, upperX, lowerY, upperY)
+      ))
+
+END dl_path_action

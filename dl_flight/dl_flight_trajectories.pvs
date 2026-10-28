@@ -1,0 +1,174 @@
+%%
+% @theory: dl_flight_trajectories
+% @author: Bernny Velasquez
+% @date: Mon, 09 Jun 2025 17:21:22 GMT
+%%
+
+dl_flight_trajectories [(IMPORTING dL@top) T, tm, sx, sy, gs, trk : dLVar]: THEORY
+  BEGIN
+    ASSUMING
+      list_of_correct_var : list[dLVar] = (: T, tm, sx, sy, gs, trk :)
+      distinct_vars : ASSUMPTION
+        pairwise_distinct_vars?(list_of_correct_var)
+
+    ENDASSUMING
+
+    IMPORTING reals_safe_ops,
+    	      trig@sincos_def
+
+    sin_re(re:RealExpr)(env:Environment): real = sin(re(env))
+    cos_re(re:RealExpr)(env:Environment): real = cos(re(env))
+    min_re(a,b:RealExpr)(env:Environment): real = min(a(env), b(env))
+
+    valid_init_assign_items(a : Assigns) : bool =
+      length(a) = length(list_of_correct_var) AND  (FORALL (i : below(length(a))) :
+        nth(a, i)`1 = nth(list_of_correct_var, i))
+
+    valid_init_assigns_me(a : Assigns) : bool =
+      valid_init_assign_items(a) AND
+        FORALL (i : below(length(a))) :
+          EXISTS (num : real) : nth(a, i)`1 << cnst(num) = nth(a, i)
+
+    valid_init_gs(a : Assigns) : bool =
+    length(a) > 4 IMPLIES
+      (FORALL (env : Environment) :
+           nth(a, 4)`2(env) >= 0)
+
+    % Checks the structure and valid variables are used for an init. Prohibits the norm(V) = 0
+    init?(hp : HP) : bool =
+      assign?(hp) AND (valid_init_assigns_me(assigns(hp))) AND (valid_init_gs(assigns(hp)))
+
+    valid_i_assign(a : Assigns) : bool =
+     length(a) = length((:T, tm:)) AND
+      (FORALL (i : below(length(a))) :
+       nth(a, i)`1 = nth((:T, tm:), i))
+
+    valid_i_assigns_me(a : Assigns) : bool =
+      valid_i_assign(a)
+      AND
+        (FORALL (i : below(length(a))) :
+          EXISTS (num : real) : nth(a, i)`1 << cnst(num) = nth(a, i))
+      AND
+        (FORALL (env : Environment) :
+          nth(a, 1)`2(env) > 0
+          )
+
+    valid_i_diff(o : ODEs) : bool =
+      length(o) = length((:T, sx, sy, gs, trk:)) AND  (FORALL (i : below(length(o))) :
+        nth(o, i)`1 = nth((:T, sx, sy, gs, trk:), i))
+
+    valid_be_diff(hp : (diff?)) : bool =
+      be(hp) = LAMBDA(e : Environment) : val(gs)(e) >= 0
+
+    instruction_struct?(hp : HP) : bool =
+      seq?(hp) AND
+        assign?(stm1(hp)) AND valid_i_assigns_me(assigns(stm1(hp))) AND
+      seq?(stm2(hp)) AND
+        diff?(stm1(stm2(hp))) AND
+          valid_i_diff(odes(stm1(stm2(hp)))) AND
+          valid_be_diff(stm1(stm2(hp))) AND
+        test?(stm2(stm2(hp)))
+
+    accel_diff?(o : ODEs) : bool =
+      FORALL (env : Environment) :
+        length(o) = length((:T, sx, sy, gs, trk:)) AND
+        nth(o, 0)`2(env) = 1 AND
+        nth(o, 4)`2(env) = 0 AND
+        (EXISTS (acc : real) : nth(o, 3)`2(env) = acc)
+
+    accel_instr?(hp : HP) : bool = instruction_struct?(hp) AND accel_diff?(odes(stm1(stm2(hp))))
+
+    turn_diff?(o : ODEs) : bool =
+      FORALL (env : Environment) :
+        length(o) = length((:T, sx, sy, gs, trk:)) AND
+        nth(o, 0)`2(env) = 1 AND
+        nth(o, 3)`2(env) = 0 AND
+        (EXISTS (acc : real) : nth(o, 4)`2(env) = acc AND acc /= 0)
+
+    turn_instr?(hp : HP) : bool = instruction_struct?(hp) AND turn_diff?(odes(stm1(stm2(hp))))
+
+    % excludes init(...)
+    instruction?(hp : HP) : bool =
+      accel_instr?(hp) OR turn_instr?(hp)
+
+    % SEQ(SEQ(SEQ(init, a), b), c)
+    valid_fprogram(hp : HP) : INDUCTIVE bool =
+      init?(hp) OR (seq?(hp) AND valid_fprogram(stm1(hp)) AND instruction?(stm2(hp)))
+
+    ValidFP : TYPE = (valid_fprogram)
+
+   % This macro is defined as syntactic sugar for creating ValidFP
+    ;++(hp:ValidFP, instr:(instruction?)) : ValidFP =
+      SEQ(hp, instr)
+
+    init_is_ValidFP : JUDGEMENT
+      (init?) SUBTYPE_OF ValidFP
+
+    init(x,y : real, speed : nonneg_real, hding : real, T0 : real, tm0 : real) : (init?) =
+      ASSIGN((:
+        T << T0,
+        tm << tm0,
+        sx << cnst(x),
+        sy << cnst(y),
+        gs << cnst(speed),
+        trk << cnst(hding):))
+
+    init(x,y : real, speed : nonneg_real, hding : real) : MACRO (init?) =
+      init(x, y, speed, hding, 0, 0)
+
+      % gs is a constant and be >= 0
+
+      % T, tm, sx, st, gs, trk appear in the list in specific order
+
+
+    % Returns a Hybrid Program that is an instruction for ValidFP
+      % a : acceleration factor
+      % t : amount of time to accelerate
+      % This limits time so that velocity minimum is always the unit vector in the same direction
+    accel(a: real, t : posreal) : (accel_instr?) =
+      SEQ(
+        ASSIGN((: T << cnst(0), tm << cnst(t):)),
+        SEQ(
+          DIFF((: T << cnst(1),
+                  sx << LAMBDA(e:Environment) : val(gs)(e) * sin(val(trk)(e)),
+                  sy << LAMBDA(e:Environment) : val(gs)(e) * cos(val(trk)(e)),
+                  gs << cnst(a),
+                  trk << cnst(0) :),
+            LAMBDA(e:Environment) : val(gs)(e) >= 0),
+          TEST(
+            LAMBDA(e:Environment):
+              IF a >= 0 THEN val(T)(e) = t
+              ELSE val(T)(e) = min(-(val(gs)(e)-(a*val(T)(e)))/a, t)
+              ENDIF
+          )
+        )
+      )
+      % I need to know that in a valid program that an instruction always comes after an init whose velocity is not zero
+      % The domain of diff is that val(gs) >= 0
+
+
+    % Returns a Hybrid Program that is an instruction for ValidFP
+      % t : amount of time to move linearly
+    linear(t : posreal) : MACRO (accel_instr?) = accel(0, t)
+    % turn(0, t:posreal) : MACRO (instruction?) = linear(t)
+
+    % Returns a Hybrid Program that is an instruction for ValidFP
+      % turn_rate : radians / s (+ : right, - : left)
+      % t : amount of time to turn
+    turn(turn_rate : nonzero_real, t : posreal) : (turn_instr?) =
+      SEQ(
+        ASSIGN((: T << cnst(0), tm << cnst(t) :)),
+        SEQ(
+          DIFF((:
+            T << cnst(1),
+            sx << LAMBDA(e : Environment) : val(gs)(e) * sin(val(trk)(e)),
+            sy << LAMBDA(e : Environment) : val(gs)(e) * cos(val(trk)(e)),
+            gs << cnst(0),
+            trk << cnst(turn_rate)
+          :),
+          LAMBDA(e:Environment) : val(gs)(e) >= 0),
+            TEST(LAMBDA(e:Environment) : val(T)(e) = t AND val(gs)(e) >= 0)
+        )
+      )
+
+  END dl_flight_trajectories

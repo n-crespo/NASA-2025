@@ -1,0 +1,48 @@
+%%
+% @theory: dl_trajectory_continuous
+% @author: bmvelasq
+% @date: Tue, 01 Jul 2025 19:21:08 GMT
+%%
+dl_trajectory_continuous[(IMPORTING dL@top) T, tm, sx, sy, gs, trk : dLVar]: THEORY
+BEGIN
+
+  ASSUMING
+  distinct_vars: ASSUMPTION
+    pairwise_distinct_vars?((:T, tm, sx, sy, gs, trk:))
+  ENDASSUMING
+
+  IMPORTING dl_flight_trajectories[T, tm, sx, sy, gs, trk],
+            dl_flight_pp[T, tm, sx, sy, gs, trk],
+            analysis@continuous_functions[real],
+            analysis@cont_if_fun[real]
+
+  hp : VAR ValidFP
+
+  pos_gs : BoolExpr = val(gs) >= cnst(0)
+  % TODO : Make a variable for (odes(stm1(stm2(accel(init(.....))))))
+  gs_gte_zero : LEMMA
+    ((: :) |- ALLRUNS(hp, pos_gs))
+
+  fs_accel(envi : Environment, a : real)(i : below(5))(t :real): real =
+    IF i = 0 THEN t + envi(dlvar_index(T))
+    ELSIF i = 1 THEN (((1/2)*a*sin(envi(dlvar_index(trk)))*t^2) + (envi(dlvar_index(gs))*sin(envi(dlvar_index(trk)))*t)) + %x_0
+        envi(dlvar_index(sx))
+    ELSIF i = 2 THEN ((1/2)*a*cos(envi(dlvar_index(trk)))*t^2 + envi(dlvar_index(gs))*cos(envi(dlvar_index(trk))) * t) +
+        envi(dlvar_index(sy))
+    ELSIF i = 3 THEN a*t + envi(dlvar_index(gs))
+    ELSE envi(dlvar_index(trk))
+    ENDIF
+
+  accel_sol : LEMMA
+    FORALL(a, t:real, D:(dd?), envi:Environment) :
+    solution_odes?(D, odes(stm1(stm2(accel(a, t)))), envi)(fs_accel(envi, a))
+
+  accel_sol_u : LEMMA
+    FORALL(a, t:real, D: (dd?), envi : Environment):
+      solution_odes_u?(D,odes(stm1(stm2(accel(a, t)))), envi)(fs_accel(envi, a))
+
+  accel_cont: LEMMA
+    FORALL(a : real, t, posreal, r:nnreal,envi:Environment):
+    cont_ODEs?(odes(stm1(stm2(accel(a, t)))),envi,r)
+
+END dl_trajectory_continuous

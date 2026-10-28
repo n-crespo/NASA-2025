@@ -1,0 +1,149 @@
+%%
+% @theory: dl_path_action_example
+% @author: Nicolas Crespo
+% @date: 2025-06-24 12:25
+%%
+
+dl_path_action_example: THEORY
+BEGIN
+
+  IMPORTING dL@top
+
+  T   : dLVar = dlvar(1)
+  tm  : dLVar = dlvar(2)
+  sx  : dLVar = dlvar(3)
+  sy  : dLVar = dlvar(4)
+  gs  : dLVar = dlvar(5)
+  trk : dLVar = dlvar(6)
+
+  IMPORTING dl_flight_trajectories[T,tm,sx,sy,gs,trk],
+            dl_path_action[T, tm, sx, sy, gs, trk],
+            trig@trig_basic,
+            aircraft_state,
+            trig@trig_values,trig@trig_rew,
+            interval_arith@strategies
+
+% Testing Initilization--------------------------------------------------------
+
+  fp : MACRO ValidFP = init(0,0,1,0)
+
+  % QED
+  init_example: LEMMA
+    (: :) |- ALLRUNS(fp,enclosure(0,0))
+
+% Testing Linear---------------------------------------------------------------
+
+  linear1 : MACRO ValidFP =
+    fp ++ linear(2)
+
+  linear2 : MACRO ValidFP =
+    linear1 ++ linear(1)
+
+  % QED
+  linear1_example: LEMMA
+    (: :) |- ALLRUNS(linear1, enclosure(0,2,0,2))
+
+  % QED
+  linear2_example: LEMMA
+    (: :) |- ALLRUNS(linear2, enclosure(0,0,0,3))
+
+  % QED
+  linear3 : MACRO ValidFP =
+    linear2 ++ linear(1)
+
+  % QED
+  linear3_example: LEMMA
+    (: :) |- ALLRUNS(linear3, enclosure(0,0,0,4))
+
+  linear4 : MACRO ValidFP =
+    linear3 ++ linear(6)
+
+  % QED
+  linear4_example: LEMMA
+    (: :) |- ALLRUNS(linear4, enclosure(0,0,0,10))
+
+  % QED
+  linear4a_example: LEMMA
+    (: :) |- ALLRUNS(init(0,0,1,0) ++ linear(1) ++ linear(2) ++ linear(3) ++ linear(4), enclosure(0,0,0,10))
+
+% Testing Quadrants------------------------------------------------------------
+
+  % QED
+  quadrant_II_example: LEMMA % moves 1 m/s 45° in quadrant II
+    (: :) |- ALLRUNS(init(0,0,1,-pi/4) ++ linear(10),enclosure(-10,0,0,10))
+
+  % QED
+  quadrant_III_example: LEMMA
+    (: :) |- ALLRUNS(init(0,0,1,5*pi/4) ++ linear(10),enclosure(10*sin(5*pi/4),0,10*cos(5*pi/4),0))
+
+  % QED
+  quadrant_IV_example: LEMMA % moves 1 m/s diagaonally in quardant IV
+    (: :) |- ALLRUNS(init(0,0,1,3*pi/4) ++ linear(10),enclosure(0,10*sin(3*pi/4),10*cos(3*pi/4),0))
+
+% Testing Acceleration---------------------------------------------------------
+
+  % QED
+  linear_then_accel_example: LEMMA
+    (: :) |- ALLRUNS(init(0,0,1,0) ++ linear(1) ++ accel(1,1), enclosure(0,0,0,2.5))
+
+  % QED
+  linear_then_accel2a_example: LEMMA
+    (: :) |- ALLRUNS(init(0,0,1,0) ++ linear(1) ++ accel(1,1) ++ linear(1), enclosure(0,0,0,4.5))
+    %                                   +1          +1.5            +2
+
+  % QED
+  linear_then_accel2b_example: LEMMA
+    (: :) |- ALLRUNS(init(0,0,1,0) ++ linear(1) ++ accel(1,1) ++ accel(1,1),enclosure(0,0,0,5))
+    %                                   +1          +1.5            +2.5
+
+  % QED
+  accel_then_linear_example: LEMMA
+    (: :) |- ALLRUNS(init(0,0,1,0) ++ accel(1,1) ++ linear(1),enclosure(0,0,0,3.5))
+    %                                   +1.5          +2
+
+  % QED
+  accel_example: LEMMA
+    (: :) |- ALLRUNS(init(0,0,1,0) ++ accel(1,1),enclosure(0,0,0,1.5))
+
+  % QED
+  linears_then_accel_example: LEMMA
+    (: :) |- ALLRUNS(init(0,0,1,0) ++ linear(1) ++ linear(1) ++ linear(1) ++ linear(1) ++ accel(1,1), enclosure(0,0,0,5.5))
+
+  % QED
+  accel2_example: LEMMA
+    %                                   +1.5        +2.5
+    (: :) |- ALLRUNS(init(0,0,1,0) ++ accel(1,1) ++ accel(1,1),enclosure(0,0,0,4))
+
+  % QED
+  three_accels_example: LEMMA
+    (: :) |- ALLRUNS(init(0,0,1,0) ++ accel(1,1) ++ accel(1,1) ++ accel(1,1),enclosure(0,0,0,7.5))
+
+% Testing Deceleration---------------------------------------------------------
+
+  % QED
+  decel_example: LEMMA
+    (: :) |- ALLRUNS(init(0,0,1,0) ++ accel(-1, 1), enclosure(0,0,0,0.5))
+
+  % QED
+  decel_to_zero_example: LEMMA % deceleration to zero
+    (: :) |- ALLRUNS(init(0,0,2,0) ++ accel(-1, 4), enclosure(0,0,0,2))
+
+  % QED
+  decel_past_zero_example : LEMMA % we should only decelerate for 4 seconds
+    (: :) |- ALLRUNS(init(0,0,2,0) ++ accel(-1, 5), enclosure(0,0,0,2))
+
+% Testing Turn-----------------------------------------------------------------
+
+  fp_turn : MACRO ValidFP =
+    init(0,0,0,30) ++ linear(10) ++ turn(3*deg/s,30)
+
+% Testing All------------------------------------------------------------------
+
+  flight : MACRO ValidFP =
+    init(0,pi/2,1,0) ++ linear(5) ++ accel(1.5,2) ++ turn(1,pi) ++ linear(10)
+
+  % note: not correct
+  is_flight_safe : LEMMA
+    (: :) |- ALLRUNS(flight, enclosure(-1,12,-1,0))
+
+END dl_path_action_example

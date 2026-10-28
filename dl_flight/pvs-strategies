@@ -1,0 +1,137 @@
+(defhelper dl-extract-dv_ (lab)
+  (let ((theory     (current-theory))
+	(assumption (find-if (lambda (decl) (and (formula-decl? decl)
+						 (is-function-expr (definition decl)
+								   "pairwise_distinct_vars?")))
+			     (assuming theory)))
+	(dv         (when assumption (id assumption))))
+    (when dv
+      (lemma dv)
+      (relabel lab -1)
+      (let ((lst (extra-get-expr `(! ,lab 1)))
+	    (nm  (when (name-expr? lst) (id lst))))
+	(then
+	 (when nm (expand nm))
+	 (for nil (expand "pairwise_distinct_vars?" lab))
+	 (for nil (expand "distinct_var?" lab))
+	 (flatten)))))
+  ""
+  "[dL] Internal strategy")
+
+(defstep dl-not_in_map (&optional (fnum +))
+  (if-match "not_in_map(%a)(%b)"
+	    (with-fresh-labels
+		((lab! $1n) (dv! :hide))
+	      (dl-extract-dv_$ dv!)
+	      (expand "not_in_map" lab!)
+	      (branch (unroll lab!)
+		      ((then (for nil (expand "nth" lab!))
+			     (hide-all-but (lab! dv!))
+			     (assert)))))
+	    :fnums fnum)
+  "[dL] Dicharges formulas of the form not_in_map(...)(...)"
+  "Discharging not_in_map")
+
+(defhelper dl-path_init_ ()
+  (branch (GRIND)
+    ((then
+      (EXPAND "semantic_rel")
+      (FLATTEN)
+      (HIDE -2)
+      (UNROLL -1)
+      (ASSERT)
+      (dl-path_simplify_)
+    )))
+  "Prove ALLRUNS(init(),enclosure())"
+  "Proving ALLRUNS(init(),enclosure())"
+)
+
+(defhelper dl-path_simplify_ ()
+  (then
+    (ASSERT)
+    (AUTO-REWRITE-THEORY "trig-values")
+    (AUTO-REWRITE-THEORY "trig_rew")
+    (ASSERT)
+    (branch (split)
+      ((if-match "ALLRUNS(%%)"
+        (SKIP)
+        (then
+          (ASSERT) (GRIND-REALS) (METIT *) (INTERVAL) (FAIL))
+      ))
+    ))
+  "Simplify P AND ALLRUNS(...) where P is some mathematical expression"
+  "Simplifying P AND Q AND ALLRUNS(...) where P is some mathematical expression"
+)
+
+(defhelper dl-path_accel_base_ ()
+  (then
+    (USE "path_accel_base")
+    (REPLACES 1)
+    (BETA)
+    (dl-path_simplify_)
+  )
+  "Prove ALLRUNS(SEQ(init(),accel(), enclosure())"
+  "Proving ALLRUNS(SEQ(init(),accel()), enclosure())"
+)
+
+(defhelper dl-path_accel_ ()
+  (then
+    (USE "path_accel")
+    (REPLACES 1)
+    (BETA)
+    (dl-path_simplify_)
+  )
+  "Prove ALLRUNS(SEQ(init(),SEQ(accel(),actions), enclosure())"
+  "Proving ALLRUNS(SEQ(init(),SEQ(accel(),actions)), enclosure())"
+)
+
+(defhelper dl-path_turn_ ()
+  (then (SKIP))
+  "Prove ALLRUNS(SEQ(init(),SEQ(turn(),actions), enclosure())"
+  "Proving ALLRUNS(SEQ(init(),SEQ(turn(),actions)), enclosure())"
+)
+
+(defhelper dl-path_turn_base_ ()
+  (then (SKIP))
+  "Prove ALLRUNS(SEQ(init(),turn(), enclosure())"
+  "Proving ALLRUNS(SEQ(init(),turn()), enclosure())"
+)
+
+(defhelper dl-path_helper_ ()
+  (then
+    (cond-match
+      ("ALLRUNS(init(%%),enclosure(%%))" (dl-path_init_))
+      ("ALLRUNS(SEQ(init(%%),accel(%%)),enclosure(%%))" (dl-path_accel_base_))
+      ("ALLRUNS(SEQ(init(%%),SEQ(accel(%%),%)),enclosure(%%))" (dl-path_accel_))
+      ("ALLRUNS(SEQ(init(%%),turn(%%)),enclosure(%%))" (dl-path_turn_base_))
+      ("ALLRUNS(SEQ(init(%%),SEQ(turn(%%),%)),enclosure(%%))" (dl-path_turn_))
+      (else (FAIL))
+    :fnums +)
+    (dl-path_helper_)
+  )
+  "Prove ALLRUNS(fp,enclosure()) where fp is a ValidFP"
+  "Proving ALLRUNS(fp,enclosure()) where fp is a ValidFP"
+)
+
+(defhelper dl-path_seq_ ()
+  (then
+    (EXPAND "++")
+    (FOR NIL (REWRITE "associative_seq"))
+  )
+  "Rewrite a ++ b ++ c with SEQ(a, SEQ(b,c))"
+  "Rewriting a ++ b ++ c with SEQ(a, SEQ(b,c))"
+)
+
+(defstep dl-enclosure ()
+  (quietly
+    (if-match
+      "ALLRUNS(init(%%),enclosure(%%))" (dl-path_init_)
+      (then
+        (dl-path_seq_)
+        (dl-path_helper_)
+      )
+    :fnums +)
+  )
+  "Prove ALLRUNS(ValidFP, enclosure())"
+  "Proving ALLRUNS(ValidFP,enclosure())"
+)

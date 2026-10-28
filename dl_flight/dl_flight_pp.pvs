@@ -1,0 +1,236 @@
+dl_flight_pp[(IMPORTING dL@top)  T, tm, sx,sy, gs, trk: dLVar]: THEORY
+BEGIN
+
+  ASSUMING
+       list_of_correct_var : list[dLVar] = (:  T, tm, sx,sy, gs, trk :)
+
+       distinct_vars : ASSUMPTION
+         pairwise_distinct_vars?(list_of_correct_var)
+
+  ENDASSUMING
+
+  IMPORTING dl_flight_trajectories[ T, tm, sx,sy, gs, trk ],
+            aircraft_state
+
+  % Empty Environment that allows us to pull values from cnst
+  empty_env : Environment = (LAMBDA (n_ : nat) : -1)
+
+  get_acceleration(instr : (instruction?)) : real =
+    nth(odes(stm1(stm2(instr))), 3)`2(empty_env)
+
+  get_time(instr : (instruction?)) : real =
+    nth(assigns(stm1(instr)), 1)`2(empty_env)
+
+  get_turn_rate(instr : (instruction?)) : real =
+    nth(odes(stm1(stm2(instr))), 4)`2(empty_env)
+
+  calc_accel_x(ac : AircraftState, a : real,ta: posreal) : real =
+    IF a < 0 THEN
+      (0.5 * a * sin(trck(ac)) * min(-grs(ac)/a, ta)^2) +
+        (grs(ac) * sin(trck(ac)) * min(-grs(ac)/a, ta)) + px(ac)
+    ELSE
+      (0.5 * a * sin(trck(ac)) * ta^2) + (grs(ac) * sin(trck(ac)) * ta) + px(ac)
+    ENDIF
+
+
+  calc_accel_y(ac : AircraftState, a : real, ta : posreal) : real =
+    IF a < 0 THEN
+      (0.5 * a * cos(trck(ac)) * min(-grs(ac)/a, ta)^2) +
+        (grs(ac) * cos(trck(ac)) * min(-grs(ac)/a, ta)) + py(ac)
+    ELSE
+      (0.5 * a * cos(trck(ac)) * ta^2) + (grs(ac) * cos(trck(ac)) * ta) + py(ac)
+    ENDIF
+
+  calc_turn_x(ac : AircraftState, w, ta: posreal) : real =
+    (-(grs(ac)/w) * cos(w*ta + trck(ac)) + px(ac) + (grs(ac)/w) * cos(trck(ac)))
+
+  calc_turn_y(ac : AircraftState, w, ta : posreal) : real =
+    (grs(ac)/w * sin(w*ta + trck(ac)) + py(ac) - (grs(ac)/w) * sin(trck(ac)))
+
+  calc_x(ac : AircraftState, a : real, w : real, ta : posreal) : real =
+    IF w = 0 THEN
+      calc_accel_x(ac, a, ta)
+    ELSE
+      calc_turn_x(ac, w, ta)
+    ENDIF
+
+  calc_y(ac : AircraftState, a : real, w : real, ta : posreal) : real =
+    IF w = 0 THEN
+      calc_accel_y(ac, a , ta)
+    ELSE
+      calc_turn_y(ac, w, ta)
+    ENDIF
+
+  calc_gs(ac : AircraftState, a : real, ta : posreal) : real =
+    IF a < 0 THEN
+      a * min(-grs(ac)/a, ta) + grs(ac)
+    ELSE
+       a*ta + grs(ac)
+    ENDIF
+
+  calc_tr(ac :AircraftState, a, w : real, ta : posreal) : real =
+    IF a < 0 THEN
+     w * min(-grs(ac)/a, ta) + trck(ac)
+    ELSE
+      w*ta + trck(ac)
+    ENDIF
+
+  calc_t(ac : AircraftState, a : real, ta : posreal) : posreal =
+    IF a < 0 THEN
+      ts(ac) + min(-grs(ac)/a, ta)
+    ELSE
+      ts(ac) + ta
+    ENDIF
+
+  calc_wp_ls(ac : AircraftState, cur_instr : (instruction?)): list[AircraftState] =
+    LET
+      a = get_acceleration(cur_instr),
+      w = get_turn_rate(cur_instr),
+      ta = get_time(cur_instr)
+    IN
+    (:mk_aircraft_state(
+      calc_x(ac, a, w, ta),
+      calc_y(ac, a, w, ta),
+      calc_gs(ac, a, ta),
+      calc_tr(ac, a, w, ta),
+      calc_t(ac, a, ta)
+    ):)
+
+  dl_wps(hp : ValidFP) : RECURSIVE list[AircraftState] =
+    CASES hp OF
+      ASSIGN(a) :
+        (:mk_aircraft_state(
+          nth(a, 2)`2(empty_env),
+          nth(a, 3)`2(empty_env),
+          nth(a, 4)`2(empty_env),
+          nth(a, 5)`2(empty_env),
+          0
+        ):),
+      SEQ(fp, instr) :
+        LET
+          pre = dl_wps(fp)
+        IN
+          append(pre, calc_wp_ls(last(pre),instr))
+    ENDCASES
+    MEASURE hp BY <<
+
+  valid_time(fp : ValidFP)(x : nonneg_real) : bool =
+   ts(car(dl_wps(fp))) <= x <= ts(last(dl_wps(fp)))
+
+  calc_wp(ac : AircraftState, cur_instr : (instruction?)): AircraftState =
+    LET
+      a = get_acceleration(cur_instr),
+      w = get_turn_rate(cur_instr),
+      ta = get_time(cur_instr)
+    IN
+    mk_aircraft_state(
+      calc_x(ac, a, w, ta),
+      calc_y(ac, a, w, ta),
+      calc_gs(ac, a, ta),
+      calc_tr(ac, a, w, ta),
+      calc_t(ac, a, ta)
+    )
+
+  calc_accel_x_n(ac : AircraftState, a : real,ta: posreal) : real =
+    (0.5 * a * sin(trck(ac)) * ta^2) + (grs(ac) * sin(trck(ac)) * ta) + px(ac)
+
+
+
+  calc_accel_y_n(ac : AircraftState, a : real, ta : posreal) : real =
+    (0.5 * a * cos(trck(ac)) * ta^2) + (grs(ac) * cos(trck(ac)) * ta) + py(ac)
+
+
+  calc_turn_x_n(ac : AircraftState, w, ta: posreal) : real =
+    (-(grs(ac)/w) * cos(w*ta + trck(ac)) + px(ac) + (grs(ac)/w) * cos(trck(ac)))
+
+  calc_turn_y_n(ac : AircraftState, w, ta : posreal) : real =
+    (grs(ac)/w * sin(w*ta + trck(ac)) + py(ac) - (grs(ac)/w) * sin(trck(ac)))
+
+  calc_x_n(ac : AircraftState, a : real, w : real, ta : posreal) : real =
+    IF w = 0 THEN
+      calc_accel_x_n(ac, a, ta)
+    ELSE
+      calc_turn_x_n(ac, w, ta)
+    ENDIF
+
+  calc_y_n(ac : AircraftState, a : real, w : real, ta : posreal) : real =
+    IF w = 0 THEN
+      calc_accel_y_n(ac, a , ta)
+    ELSE
+      calc_turn_y_n(ac, w, ta)
+    ENDIF
+
+  calc_gs_n(ac : AircraftState, a : real, ta : posreal) : real =
+     a*ta + grs(ac)
+
+
+  calc_tr_n(ac :AircraftState, w : real, ta : posreal) : real =
+    w*ta + trck(ac)
+
+
+
+  calc_s(ac : AircraftState, instr : (instruction?))(t : real) : AircraftState =
+    LET
+      a = get_acceleration(instr),
+      w = get_turn_rate(instr),
+      ta = t - ts(ac)
+    IN
+    mk_aircraft_state(
+      calc_x_n(ac, a, w, ta),
+      calc_y_n(ac, a, w, ta),
+      calc_gs_n(ac, a, ta),
+      calc_tr_n(ac, w, ta),
+      t
+    )
+
+  dl_state_t(hp : ValidFP)(t : real) : RECURSIVE AircraftState =
+    CASES hp OF
+      ASSIGN(a) :
+        LET ac =
+        mk_aircraft_state(
+            nth(a, 2)`2(empty_env),
+            nth(a, 3)`2(empty_env),
+            nth(a, 4)`2(empty_env),
+            nth(a, 5)`2(empty_env),
+            0
+          )
+        IN
+        mk_aircraft_state(
+          calc_x(ac, 0, 0, t),
+          calc_y(ac, 0, 0, t),
+          nth(a, 4)`2(empty_env),
+          nth(a, 5)`2(empty_env),
+          t
+        )
+          ,
+      SEQ(fp, instr) :
+        LET tp = ts(last(dl_wps(fp))) IN
+          IF t > tp THEN
+            calc_s(last(dl_wps(fp)), instr)(t)
+          ELSE
+            dl_state_t(fp)(t)
+          ENDIF
+      ENDCASES
+      MEASURE hp BY <<
+
+  dl_get_all_states(hp : ValidFP, t,tn: nonneg_real, deltaT: posreal) : RECURSIVE list[AircraftState] =
+    IF t > tn THEN (::)
+    ELSE
+      cons(dl_state_t(hp)(t),dl_get_all_states(hp,t+deltaT,tn,deltaT))
+    ENDIF
+    MEASURE floor(tn-t/deltaT) %%% ******** [CM] THIS IS NOT A GOOD MEASURE
+
+
+  dl_states_pp(hp : ValidFP, deltaT : posreal) : list[AircraftState] =
+    LET
+      waypoints = dl_wps(hp),
+      tn        = ts(last(waypoints)),
+      t0        = ts(car(waypoints))
+    IN
+    dl_get_all_states(hp,t0,tn,deltaT)
+
+  dl_states_pp(hp : ValidFP) : MACRO list[AircraftState] =
+    dl_states_pp(hp,1)
+
+
+END dl_flight_pp

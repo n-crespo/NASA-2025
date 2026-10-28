@@ -1,0 +1,27 @@
+%%
+% @theory: if_fun_deriv
+% @author: Bernny Velasquez
+% @date: Wed, 30 Jul 2025 15:02:58 GMT
+%%
+deriv_if_fun[ T : TYPE FROM real ]: THEORY
+  BEGIN
+
+  IMPORTING analysis@cont_if_fun[T],
+            analysis@derivatives[T],
+            analysis@lim_of_functions[T],
+            convergence_functions[T]
+
+  f1,f2 : VAR [T -> real]
+
+  P : VAR [T -> bool]
+
+  x : VAR T
+
+  %Q.E.D.
+  if_fun_deriv : LEMMA
+    differentiable?(f1) AND differentiable?(f2)
+      AND (FORALL (x:T): discont_pts(P)(x) IMPLIES f1(x) = f2(x) AND deriv(f1)(x) = deriv(f2)(x))
+    IMPLIES differentiable?(if_fun(P,f1,f2))
+
+
+  END deriv_if_fun

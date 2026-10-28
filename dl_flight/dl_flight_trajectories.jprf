@@ -1,0 +1,671 @@
+{
+ "dl_flight_trajectories.fp_is_ValidInstructions": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "fp_is_ValidInstructions",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "9b9e306f6220aed38409efb8ca63119a808c646b055b23cb7ee2999204e62ec4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "fp_is_ValidInstructions",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(FLATTEN)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"valid_fprogram\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"valid_fprogram\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(EXPAND \"instruction?\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(PROPAX)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(EXPAND \"valid_fprogram\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(HIDE -3)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(HIDE -3)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(SPLIT)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "2.2.1",
+                "name": "(2.2.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.1",
+                  "name": "(EXPAND \"valid_instructions\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.2.1",
+                  "name": "(FLATTEN)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.2.1",
+                  "name": "(EXPAND \"instruction?\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.2.1",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.2.2",
+                "name": "(2.2.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.2",
+                  "name": "(HIDE -3 -4 -1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.2.2",
+                  "name": "(EXPAND \"valid_fprogram\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.2.2",
+                  "name": "(EXPAND \"valid_instructions\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.2.2",
+                  "name": "(GRIND)",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "2.2.2.1",
+                    "name": "(2.2.2.1)",
+                    "type": "proof-branch",
+                    "rules": []
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.init_is_ValidFP": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "init_is_ValidFP",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "201df82d25a245e5f1122fa7eeb7baca150e77b70693247a8ba447fea2b54742"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "init_is_ValidFP",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP :PREDS? T)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"valid_fprogram\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.ValidFP_is_ValidInstructions": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "ValidFP_is_ValidInstructions",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "ab632321057cc05a14e735005f155cede4345c1d4975bc27e980366d550778be"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "ValidFP_is_ValidInstructions",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(INDUCT \"x\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(TYPEPRED \"x!1\")",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(TYPEPRED \"x!1\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(PROPAX)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(SKEEP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"valid_fprogram\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"valid_instructions\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"instruction?\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(SKEEP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(EXPAND \"valid_fprogram\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(EXPAND \"valid_instructions\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(EXPAND \"instruction?\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "4",
+        "name": "(4)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "4",
+          "name": "(SKEEP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "4",
+          "name": "(EXPAND \"valid_fprogram\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "4",
+          "name": "(EXPAND \"valid_instructions\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "4",
+          "name": "(EXPAND \"instruction?\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "4",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "5",
+        "name": "(5)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "5",
+          "name": "(EXPAND \"valid_fprogram\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(SKEEP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(SPLIT)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "5.1",
+            "name": "(5.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.1",
+              "name": "(SPLIT)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "5.1.1",
+                "name": "(5.1.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "5.1.1",
+                  "name": "(REPLACE -2)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.1.1",
+                  "name": "(EXPAND \"instruction?\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.1.1",
+                  "name": "(EXPAND \"valid_instructions\" -1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.1.1",
+                  "name": "(HIDE -2 -3)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.1.1",
+                  "name": "(FLATTEN)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.1.1",
+                  "name": "(SPLIT)",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "5.1.1.1",
+                    "name": "(5.1.1.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "5.1.1.1",
+                      "name": "(EXPAND \"instruction?\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "5.1.1.1",
+                      "name": "(ASSERT)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "5.1.1.2",
+                    "name": "(5.1.1.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "5.1.1.2",
+                      "name": "(FLATTEN)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "5.1.1.2",
+                      "name": "(FLATTEN)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.init_plus_actions_is_ValidFP": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "init_plus_actions_is_ValidFP",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "4207ecbd3b01490ed72db6680b8cf40f40adb87d5cde1126ac158979d1db34bb"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "init_plus_actions_is_ValidFP",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"valid_fprogram\")",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.ValidActions_is_ValidInstuctions": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "ValidActions_is_ValidInstuctions",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "201df82d25a245e5f1122fa7eeb7baca150e77b70693247a8ba447fea2b54742"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "ValidActions_is_ValidInstuctions",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(JUDGEMENT-TCC)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"valid_actions\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"valid_instrs\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(JUDGEMENT-TCC)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"valid_instrs\")",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_flight_trajectories.action_is_instruction": [
+  {
+   "info": {
+    "theory": "dl_flight_trajectories",
+    "formula": "action_is_instruction",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "93c41ff61fe8a87161845a57326a386227426c6394779fa301479bd1ca9359a3"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "action_is_instruction",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP :PREDS? T)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"action?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

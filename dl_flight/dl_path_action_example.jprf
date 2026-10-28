@@ -1,0 +1,3255 @@
+{
+ "dl_path_action_example.example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "18aa62037487fb29bb89122b7cba241b98a7c6c1a87997cd0270381ff14fc0df"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(LEMMA \"path_action\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST? -1)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(HIDE 2)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(DL-INIT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.exampe": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "exampe",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "5a4f9c2ac97e905e3ebc22931a131c5a070bd85d6fee5f449cbc729f228c121b"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "exampe",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(LEMMA \"path_action\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"hp\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"hp\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST? -1)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example0": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example0",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "37a791cf8b2937b6f0d99bec70b4e759d56ebc380218547a6f40718af7927343"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example0",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_accel": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_accel",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "d790f0493eb650aca40c339f159a9d51f5dab443242637098ac668f658e1a00f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_accel",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_init": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_init",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0879f591ae1073012000a109c569a6a75997c78e287d6496c84e589f6c8522b6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_init",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "37a791cf8b2937b6f0d99bec70b4e759d56ebc380218547a6f40718af7927343"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example2": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example2",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "37a791cf8b2937b6f0d99bec70b4e759d56ebc380218547a6f40718af7927343"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.exampleBad": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "exampleBad",
+    "status": "unchecked",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "6f73663ee56048e54037396f1eabd5f7efb3ec1312a979a5eb19de8adda68e11"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "exampleBad",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE -2)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE -4)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.exampleNegative": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "exampleNegative",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "6f73663ee56048e54037396f1eabd5f7efb3ec1312a979a5eb19de8adda68e11"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "exampleNegative",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example3": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example3",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "2207df0321ca224e6b69fdcce60a44fee6034f2cf536fed73286135bebc96c45"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example4": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example4",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "381ba69c6a67c7d8b7c5171bded392fc4bfe0ab44e84d786b7433b86b0502661"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example4",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example5": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example5",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "a222ec3dea59ea722dd202679c70d2148c10c1458f6c6f1d8410f48fb8c516e1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example5",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example6": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example6",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "b795aa4a3f56e21365d0b5c8eac49fc59eab409d6b680737c80c2bac1ef183f7"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example6",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example7": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example7",
+    "status": "unchecked",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "1054779ee9a81bed95032e08342df2574370146896bf6d4ba25fb3b736d3b6c3"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example7",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE -4)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE -2)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.exampleBad2": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "exampleBad2",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "b747d461f773eba97675361ca4676497a33a37c3db2abd75b10bb53fef3578c4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "exampleBad2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE -4)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE -2)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.exampleAccel": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "exampleAccel",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "b747d461f773eba97675361ca4676497a33a37c3db2abd75b10bb53fef3578c4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "exampleAccel",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example3a": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example3a",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "37a791cf8b2937b6f0d99bec70b4e759d56ebc380218547a6f40718af7927343"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example3a",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example3b": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example3b",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "f069ed619c670bc5423d6a2342b83caf022c968df1b46713f0613d204424f58c"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example3b",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.exampleDecel": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "exampleDecel",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "d521e12d4194d5bba1aa890e88054dc0a400d5c0a54c25dad20b0391c4da8c1c"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "exampleDecel",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.exampleDecelZero": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "exampleDecelZero",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "37a791cf8b2937b6f0d99bec70b4e759d56ebc380218547a6f40718af7927343"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "exampleDecelZero",
+    "type": "root",
+    "rules": []
+   }
+  }
+ ],
+ "dl_path_action_example.example_linear1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_linear1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0879f591ae1073012000a109c569a6a75997c78e287d6496c84e589f6c8522b6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_linear1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_linear2": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_linear2",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0879f591ae1073012000a109c569a6a75997c78e287d6496c84e589f6c8522b6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_linear2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_linear3": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_linear3",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "ca70dfc216b6be1070e9071bf0870f36fcc4c1c11633af6bac1b013b25e0c554"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_linear3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_quadrant_II": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_quadrant_II",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "ca70dfc216b6be1070e9071bf0870f36fcc4c1c11633af6bac1b013b25e0c554"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_quadrant_II",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_quadrant_III": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_quadrant_III",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "d790f0493eb650aca40c339f159a9d51f5dab443242637098ac668f658e1a00f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_quadrant_III",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_quadrant_IV": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_quadrant_IV",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "d790f0493eb650aca40c339f159a9d51f5dab443242637098ac668f658e1a00f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_quadrant_IV",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_decel": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_decel",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "45793e0cf7212eecd5d2f5d6e7471c98ede08a53d706b2606037d7399bf2fc4d"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_decel",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_decel_zero": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_decel_zero",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "8deb84eed8091ee8d17d231491751660daccf2dd6efd56c8119a9d261a439ea6"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_decel_zero",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_decel_negative": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_decel_negative",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "d790f0493eb650aca40c339f159a9d51f5dab443242637098ac668f658e1a00f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_decel_negative",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_linear2a": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_linear2a",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "d790f0493eb650aca40c339f159a9d51f5dab443242637098ac668f658e1a00f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_linear2a",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_init_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_init_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "35bf27edff27eb54130f0d5c88fe64fea90c2a687efcee8e744c76b40dd83095"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_init_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"singleton\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"singleton\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST 1 \"enclosure[T, tm, sx, sy, gs, trk] (cnst(0), cnst(0), cnst(0), cnst(0))\")",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.IMP_dl_path_action_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "IMP_dl_path_action_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "04380910a29ea4ec1661ecfeddd8012bfba4e8b5d56f61d51ae28ac263a64374"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "IMP_dl_path_action_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(LEMMA \"distinct_vars\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"list_of_correct_var\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_accel_false": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_accel_false",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "eaf181dd3e76ce24ce39a4fbc4b3b28a0c419ccd14e71771f05e537d1f395ece"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_accel_false",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_decel_to_zero": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_decel_to_zero",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "9db14007c0ebcf8cb18c7fa8d8fa7e7fecf65e11c2b6e7996e1ae77958b0b7a1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_decel_to_zero",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.example_decel_past_zero": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "example_decel_past_zero",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "d681e2fdf7990159d23b0fa86c704815178effdd83e9f4c66e16472a07e81684"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "example_decel_past_zero",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel2_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel2_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "40004bcdd09c9ffa5f3b8f067c91e14da1fde9f5c8be856fbcaf1e27b1e9a71a"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel2_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel3_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel3_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "9e9ed07ecae0cf7ff65319ff9fc26245e2db97b58f8bcfa992b874048ed7cf86"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel3_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear3_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear3_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear3_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(USE \"path_accel\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(USE \"path_accel\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(BETA)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(BETA)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACES 1)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REWRITE \"sin_0\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REWRITE \"cos_0\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "4",
+        "name": "(4)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "4",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "5",
+        "name": "(5)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "5",
+          "name": "(USE \"path_accel\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(BETA)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(REPLACES 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(REWRITE \"sin_0\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(REWRITE \"cos_0\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "5",
+          "name": "(SPLIT)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "5.1",
+            "name": "(5.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.2",
+            "name": "(5.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.3",
+            "name": "(5.3)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.3",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.4",
+            "name": "(5.4)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.4",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.5",
+            "name": "(5.5)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.5",
+              "name": "(USE \"path_accel_base\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.5",
+              "name": "(BETA)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.5",
+              "name": "(REPLACES 1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.5",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.5",
+              "name": "(REWRITE \"sin_0\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.5",
+              "name": "(REWRITE \"cos_0\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.5",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.5",
+              "name": "(GRIND)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "5.5.1",
+                "name": "(5.5.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "5.5.1",
+                  "name": "(EXPAND \"semantic_rel\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.1",
+                  "name": "(FLATTEN)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.1",
+                  "name": "(HIDE -2)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.1",
+                  "name": "(UNROLL -1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.1",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "5.5.2",
+                "name": "(5.5.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "5.5.2",
+                  "name": "(EXPAND \"semantic_rel\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.2",
+                  "name": "(FLATTEN)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.2",
+                  "name": "(HIDE -2)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.2",
+                  "name": "(UNROLL -1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.2",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "5.5.3",
+                "name": "(5.5.3)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "5.5.3",
+                  "name": "(EXPAND \"semantic_rel\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.3",
+                  "name": "(FLATTEN)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.3",
+                  "name": "(HIDE -2)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.3",
+                  "name": "(UNROLL -1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.3",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "5.5.4",
+                "name": "(5.5.4)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "5.5.4",
+                  "name": "(EXPAND \"semantic_rel\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.4",
+                  "name": "(FLATTEN)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.4",
+                  "name": "(HIDE -2)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.4",
+                  "name": "(UNROLL -1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "5.5.4",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel_mixed_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel_mixed_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "9e9ed07ecae0cf7ff65319ff9fc26245e2db97b58f8bcfa992b874048ed7cf86"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel_mixed_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel2a_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel2a_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "c6a7bcfb52c72f894a2c5633995a328a06069ae044a0461978dc7a1f6910e1d2"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel2a_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel2b_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel2b_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "0dd4dff5bfba1a200187ee84e4af0c44a9a80accb0895884a42ea49406202414"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel2b_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel2c_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel2c_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "9e9ed07ecae0cf7ff65319ff9fc26245e2db97b58f8bcfa992b874048ed7cf86"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel2c_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel3a_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel3a_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "6cc538ad1221e43ff0f23018f5af7010c65d2878fdd1a5d2ed9cce98de219c68"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel3a_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear1_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear1_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "b303f50b2cebab22864f6754c81c8fdd758d803276053783ed497c4336cb29c2"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear1_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(BETA)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REWRITES (\"sin_0\" \"cos_0\"))",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "4",
+        "name": "(4)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "4",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "5",
+        "name": "(5)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "5",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "6",
+        "name": "(6)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "6",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "7",
+        "name": "(7)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "7",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "8",
+        "name": "(8)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "8",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "9",
+        "name": "(9)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "9",
+          "name": "(DL-PATH_INIT_)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.init_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "init_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "b303f50b2cebab22864f6754c81c8fdd758d803276053783ed497c4336cb29c2"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "init_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear2_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear2_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "b303f50b2cebab22864f6754c81c8fdd758d803276053783ed497c4336cb29c2"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear2_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear2a_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear2a_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "9e9ed07ecae0cf7ff65319ff9fc26245e2db97b58f8bcfa992b874048ed7cf86"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear2a_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.quadrant_II_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "quadrant_II_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "b303f50b2cebab22864f6754c81c8fdd758d803276053783ed497c4336cb29c2"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "quadrant_II_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.quadrant_III_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "quadrant_III_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "379b9f084b43a71cc66d03b027a58c107839211be596006da7683eaf57b57fe5"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "quadrant_III_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.quadrant_IV_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "quadrant_IV_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "cd9c626967e519d2315ce155e60ffdb7d38ea454d1ea5a23cc9d41177fe96a35"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "quadrant_IV_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-PATH_SEQ_)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(DL-PATH_ACCEL_BASE_)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(EXPAND \"semantic_rel\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(HIDE -2)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(UNROLL -1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(AUTO-REWRITE-THEORY \"trig_rew\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(GRIND-REALS)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(AUTO-REWRITE-THEORY \"trig_rew\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(METIT *)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(AUTO-REWRITE-THEORY \"trig_rew\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(AUTO-REWRITE-THEORY \"trig_rew\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(GRIND-REALS)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(AUTO-REWRITE-THEORY \"trig_values\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(METIT *)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(DL-PATH_SIMPLIFY_)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"semantic_rel\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(HIDE -2)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(UNROLL -1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(EXPAND \"semantic_rel\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(HIDE -2)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(UNROLL -1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "4",
+        "name": "(4)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "4",
+          "name": "(EXPAND \"semantic_rel\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "4",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "4",
+          "name": "(HIDE -2)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "4",
+          "name": "(UNROLL -1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "4",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "4",
+          "name": "(METIT *)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "83421fe564fd4bd7c9668999c87c91c015660251e6eccf3d4400367d329dcd44"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linears_then_accel_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linears_then_accel_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "83421fe564fd4bd7c9668999c87c91c015660251e6eccf3d4400367d329dcd44"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linears_then_accel_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear_then_accel_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear_then_accel_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "b303f50b2cebab22864f6754c81c8fdd758d803276053783ed497c4336cb29c2"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear_then_accel_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel_then_linear_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel_then_linear_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "83421fe564fd4bd7c9668999c87c91c015660251e6eccf3d4400367d329dcd44"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel_then_linear_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear_then_accel2_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear_then_accel2_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "05612560b3186b9ef37b6f1b403c85272d11347d617782918edff4d65a86a837"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear_then_accel2_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear_then_accel2b_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear_then_accel2b_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "c34380dcd6f673eecddd7e024eee4b2438aa329bc78a2938bd1460dc4645061a"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear_then_accel2b_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear_then_accel2a_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear_then_accel2a_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "7975c3311ad412f3df6da934599933e1d31576172710ca2da074ac119c0b6e1b"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear_then_accel2a_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.quadrant_II_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "quadrant_II_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "quadrant_II_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.quadrant_III_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "quadrant_III_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "04380910a29ea4ec1661ecfeddd8012bfba4e8b5d56f61d51ae28ac263a64374"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "quadrant_III_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"enclosure\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.quadrant_IV_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "quadrant_IV_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "04380910a29ea4ec1661ecfeddd8012bfba4e8b5d56f61d51ae28ac263a64374"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "quadrant_IV_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"enclosure\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear_then_accel_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear_then_accel_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear_then_accel_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear_then_accel2a_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear_then_accel2a_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "04380910a29ea4ec1661ecfeddd8012bfba4e8b5d56f61d51ae28ac263a64374"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear_then_accel2a_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"enclosure\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear_then_accel2b_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear_then_accel2b_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "04380910a29ea4ec1661ecfeddd8012bfba4e8b5d56f61d51ae28ac263a64374"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear_then_accel2b_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"enclosure\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "04380910a29ea4ec1661ecfeddd8012bfba4e8b5d56f61d51ae28ac263a64374"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"enclosure\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linears_then_accel_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linears_then_accel_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "04380910a29ea4ec1661ecfeddd8012bfba4e8b5d56f61d51ae28ac263a64374"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linears_then_accel_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"enclosure\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.accel2_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "accel2_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "04380910a29ea4ec1661ecfeddd8012bfba4e8b5d56f61d51ae28ac263a64374"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "accel2_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"enclosure\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.three_accels_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "three_accels_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "04380910a29ea4ec1661ecfeddd8012bfba4e8b5d56f61d51ae28ac263a64374"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "three_accels_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"enclosure\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.decel_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "decel_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "decel_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.decel_to_zero_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "decel_to_zero_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "decel_to_zero_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.is_flight_safe_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "is_flight_safe_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "04380910a29ea4ec1661ecfeddd8012bfba4e8b5d56f61d51ae28ac263a64374"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "is_flight_safe_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"enclosure\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.three_accels_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "three_accels_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "337a44d104c7667d586e2e3f8fada5b64e520596a6a47cde5380f8ff0c75db72"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "three_accels_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear4_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear4_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "b303f50b2cebab22864f6754c81c8fdd758d803276053783ed497c4336cb29c2"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear4_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear4a_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear4a_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "b303f50b2cebab22864f6754c81c8fdd758d803276053783ed497c4336cb29c2"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear4a_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear3a_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear3a_example",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear3a_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(LEMMA \"associative_plus_plus\")",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.IMP_dl_flight_trajectories_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "IMP_dl_flight_trajectories_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "IMP_dl_flight_trajectories_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(ASSUMING-TCC)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSUMING-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear1_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear1_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear1_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear2_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear2_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear2_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear4_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear4_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear4_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear4a_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear4a_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear4a_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.linear4a_example_TCC2": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "linear4a_example_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "linear4a_example_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.flight_TCC3": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "flight_TCC3",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "flight_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.flight_TCC2": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "flight_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "flight_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.flight_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "flight_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "flight_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.fp_turn_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "fp_turn_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "fp_turn_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.decel_past_zero_example_TCC1": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "decel_past_zero_example_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "103067aa51f795edde7df58869865e39d4dd6ddbeffc9fcee21be19742e6088e"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "decel_past_zero_example_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"instruction?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROPAX)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.decel_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "decel_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "337a44d104c7667d586e2e3f8fada5b64e520596a6a47cde5380f8ff0c75db72"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "decel_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.decel_to_zero_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "decel_to_zero_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "337a44d104c7667d586e2e3f8fada5b64e520596a6a47cde5380f8ff0c75db72"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "decel_to_zero_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.decel_past_zero_example": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "decel_past_zero_example",
+    "status": "proved",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "379b9f084b43a71cc66d03b027a58c107839211be596006da7683eaf57b57fe5"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "decel_past_zero_example",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "dl_path_action_example.is_flight_safe": [
+  {
+   "info": {
+    "theory": "dl_path_action_example",
+    "formula": "is_flight_safe",
+    "status": "unfinished",
+    "prover": "PVS 8.0 (SBCL 2.4.0)",
+    "shasum": "337a44d104c7667d586e2e3f8fada5b64e520596a6a47cde5380f8ff0c75db72"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "is_flight_safe",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(DL-ENCLOSURE)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}
