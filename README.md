@@ -42,16 +42,18 @@ change. Applying the lemma repeatedly shrinks the flight down to a single
 The [flight-path proofs](./dl_flight/dl_path_action.prf) for `path_accel` and
 `path_accel_base` can be used to show that every run of an acceleration action
 keeps the vehicle within safety boundaries using the ODE solution lemma
-[`accel_sol`](./dl_flight/dl_trajectory_continuous.pvs).
+[`accel_sol`](./dl_flight/dl_trajectory_continuous.pvs). The
+[`dl-enclosure`](./dl_flight/pvs-strategies) strategy automates proving these
+kinds of `ALLRUNS(fp, enclosure(...))` goals by following these steps:
 
-The [`dl-enclosure`](./dl_flight/pvs-strategies) strategy automates proving
-these kinds of `ALLRUNS(fp, enclosure(...))` goals. It rewrites `a ++ b ++ c`
-into `SEQ(a, SEQ(b, c))`, pattern-matches on the shape of the dL sequent
-(`init` followed by an `accel` or `turn`), applies the matching
-`path_accel`/`path_accel_base` (or `path_turn`/`path_turn_base`) lemma, and
-recurses until only `init(...)` is left. (note `path_turn` is not yet proven)
+1. rewrite `a ++ b ++ c` into `SEQ(a, SEQ(b, c))`
+2. pattern-match on the shape of the dL sequent (`init` followed by an `accel` or `turn`),
+3. apply the matching `path_accel`/`path_accel_base` (or `path_turn`/`path_turn_base`) lemma,
+4. and recurse until only `init(...)` is left. (note `path_turn` is not yet proven)
 
-A test bench of safe/unsafe flight examples can be found in ([dl_path_action_example.pvs](./dl_flight/dl_path_action_example.pvs)).
+A test bench of safe/unsafe flight examples that can be solved with this
+strategy can be found in
+([dl_path_action_example.pvs](./dl_flight/dl_path_action_example.pvs)).
 
 > [!NOTE]
 > A HTML visualization of the [`path_accel` proof
