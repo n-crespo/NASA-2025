@@ -48,11 +48,11 @@ change. Applying the lemma repeatedly shrinks the flight down to a single
 `init(...)` and enclosure. At that point a simple expansion can verify whether
 we violated the enclosure or not.
 
-The [flight-path proofs](./dl_flight/dl_path_action.prf) for `path_accel` and
+The [proofs](./dl_flight/dl_path_action.pvs) for `path_accel` and
 `path_accel_base` can be used to show that every run of an acceleration action
 keeps the vehicle within safety boundaries using the ODE solution lemma
-[`accel_sol`](./dl_flight/dl_trajectory_continuous.pvs). Furthermore, the
-[`dl-enclosure`](./dl_flight/pvs-strategies) strategy automates proving these
+[accel_sol](./dl_flight/dl_trajectory_continuous.pvs). Furthermore, the
+[dl-enclosure](./dl_flight/pvs-strategies) strategy automates proving these
 kinds of `ALLRUNS(fp, enclosure(...))` goals by following these steps:
 
 1. rewrite `a ++ b ++ c` into `SEQ(a, SEQ(b, c))`
@@ -62,9 +62,9 @@ kinds of `ALLRUNS(fp, enclosure(...))` goals by following these steps:
 
 A test bench of safe/unsafe flight examples that can be solved with this
 strategy can be found in
-([dl_path_action_example.pvs](./dl_flight/dl_path_action_example.pvs)). An
-HTML visualization of the [`path_accel` proof
-tree](./dl_flight/dl_enclosure/path_accel.html) is also available (it may
+[dl_path_action_example.pvs](./dl_flight/dl_path_action_example.pvs). An
+HTML visualization of the `path_accel` proof
+tree is also [available](./dl_flight/dl_enclosure/path_accel.html) (it may
 require quite a bit of zooming out to be visible).
 
 ## My Previous Approach
