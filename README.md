@@ -30,7 +30,7 @@ Given a sequence of instructions (an `init()` followed by valid flight actions
 like `accel()` or `turn()`) and a valid `enclosure()`, we can show that all runs
 of the instructions satisfy the enclosure via repeated simplification.
 
-Each lemma in [`dl_path_action.pvs`](./dl_flight/dl_path_action.pvs) consumes
+Each lemma in [dl_path_action.pvs](./dl_flight/dl_path_action.pvs) consumes
 the action directly after `init(...)` and turns its effect into a new
 `init(...)`:
 
@@ -83,9 +83,9 @@ Remnants from this approach are still in the repo:
 - [proofs](./dl_flight/dl_enclosure/backwards_approach/dl_path_action.prl) for `path_accel`, `path_accel_base`,
   `path_accel_reals`, `intersect_enc` and `intersect_enc_re` (the matching
   `.pvs` spec was replaced by the forward version)
-- the backwards [`dl-enclosure`](./dl_flight/dl_enclosure/backwards_approach/pvs-strategies)
+- the backwards [dl-enclosure](./dl_flight/dl_enclosure/backwards_approach/pvs-strategies)
   strategy, which used `intersect_enc` to merge enclosures via `DLAND`
-- the [`path_accel_reals` proof tree](./dl_flight/dl_enclosure/backwards_approach/path_accel_reals.html)
+- the [path_accel_reals proof tree](./dl_flight/dl_enclosure/backwards_approach/path_accel_reals.html)
 
 ## Other Notes
 
