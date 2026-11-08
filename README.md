@@ -45,7 +45,8 @@ start and end of accel(a,t) are inside the enclosure AND
 Because every state variable is an argument of `init(...)`, the
 enclosure never refers to a value (like `gs` or `trk`) that a later step could
 change. Applying the lemma repeatedly shrinks the flight down to a single
-`init(...)`.
+`init(...)` and enclosure. At that point a simple expansion can verify whether
+we violated the enclosure or not.
 
 The [flight-path proofs](./dl_flight/dl_path_action.prf) for `path_accel` and
 `path_accel_base` can be used to show that every run of an acceleration action
